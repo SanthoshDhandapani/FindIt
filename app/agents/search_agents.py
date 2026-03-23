@@ -198,22 +198,117 @@ def compute_relevancy_score(
 # Phase 1 — CrewAI agent builders (Issue #9)
 # ---------------------------------------------------------------------------
 
-def build_query_analyst():
-    # TODO: Return CrewAI Agent with role="Query Analyst"
-    # Use LLM(model="gemini/gemini-2.5-flash") via CrewAI's LiteLLM integration
-    raise NotImplementedError
+from crewai import Agent, Task, Crew, LLM, Process
 
 
-def build_search_strategist():
-    # TODO: Return CrewAI Agent with role="Search Strategist"
-    # Use LLM(model="gemini/gemini-2.5-flash") via CrewAI's LiteLLM integration
-    raise NotImplementedError
+def _get_llm() -> LLM:
+    """Return a CrewAI LLM configured for Gemini via LiteLLM."""
+    return LLM(
+        model=f"gemini/{settings.gemini_model}",
+        max_completion_tokens=512,
+    )
 
 
-def build_results_ranker():
-    # TODO: Return CrewAI Agent with role="Results Ranker"
-    # Use LLM(model="gemini/gemini-2.5-flash") via CrewAI's LiteLLM integration
-    raise NotImplementedError
+def build_query_analyst() -> Agent:
+    """CrewAI Agent: parses user query into structured intent."""
+    return Agent(
+        role="Query Analyst",
+        goal="Extract structured search intent (category, brand, color, price, specificity) from the user query.",
+        backstory=(
+            "You are an expert at understanding e-commerce search queries. "
+            "You extract the user's true intent — what category they want, "
+            "which brand, color preference, price range, and how specific their query is. "
+            "You always output structured JSON matching the ParsedIntent schema."
+        ),
+        llm=_get_llm(),
+        verbose=False,
+    )
+
+
+def build_search_strategist() -> Agent:
+    """CrewAI Agent: decides search strategy (alpha, filters, namespace)."""
+    return Agent(
+        role="Search Strategist",
+        goal="Decide the optimal search mode (semantic vs keyword blend) and build metadata filters based on the parsed intent.",
+        backstory=(
+            "You are a search systems expert. Given a parsed query intent, "
+            "you decide the alpha weight for hybrid search — high specificity "
+            "queries get keyword-heavy search, vague queries get semantic-heavy search. "
+            "You also construct Pinecone metadata filters for brand, color, and price."
+        ),
+        llm=_get_llm(),
+        verbose=False,
+    )
+
+
+def build_results_ranker() -> Agent:
+    """CrewAI Agent: re-ranks search results by blending similarity, rating, and reviews."""
+    return Agent(
+        role="Results Ranker",
+        goal="Re-score and rank product search results by blending semantic similarity with product rating and review count into a final relevancy score.",
+        backstory=(
+            "You are a ranking specialist. You take raw search candidates and "
+            "compute a final relevancy score that balances how well the product "
+            "matches the query (similarity) with social proof (rating, reviews). "
+            "Your scoring formula ensures the best products surface to the top."
+        ),
+        llm=_get_llm(),
+        verbose=False,
+    )
+
+
+def build_search_crew() -> Crew:
+    """Build the 3-agent CrewAI crew for the search pipeline.
+
+    Agents run sequentially:
+        Query Analyst → Search Strategist → Results Ranker
+
+    Returns:
+        Crew ready to kickoff with inputs={"query": "..."}
+    """
+    analyst = build_query_analyst()
+    strategist = build_search_strategist()
+    ranker = build_results_ranker()
+
+    task_analyze = Task(
+        description=(
+            "Parse the user search query: '{query}'\n"
+            "Extract: category, brand, color, price_min, price_max, sort_by, keywords, specificity.\n"
+            "Return a JSON object matching the ParsedIntent schema."
+        ),
+        expected_output="A JSON object with category, brand, color, price range, keywords, and specificity.",
+        agent=analyst,
+    )
+
+    task_strategize = Task(
+        description=(
+            "Given the parsed intent from the Query Analyst, decide:\n"
+            "1. Alpha value (0.0-1.0) for semantic/keyword blend\n"
+            "2. Pinecone metadata filters (category, brand, color, price range)\n"
+            "3. Which namespace(s) to search\n"
+            "Rules: high specificity → alpha=0.2, medium → 0.6, low → 0.85"
+        ),
+        expected_output="A JSON with alpha value, filters dict, and target namespaces.",
+        agent=strategist,
+    )
+
+    task_rank = Task(
+        description=(
+            "Given search candidates with similarity scores and product metadata, "
+            "compute a final relevancy score for each result using:\n"
+            "  score = (1 - 0.2) * similarity + 0.2 * (rating/5) + min(review_count/1000, 1.0) * 0.05\n"
+            "Return results sorted by relevancy score descending."
+        ),
+        expected_output="A ranked list of products with relevancy scores.",
+        agent=ranker,
+    )
+
+    return Crew(
+        agents=[analyst, strategist, ranker],
+        tasks=[task_analyze, task_strategize, task_rank],
+        process=Process.sequential,
+        verbose=False,
+    )
 
 
 # ---------------------------------------------------------------------------
