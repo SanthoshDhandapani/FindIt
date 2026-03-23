@@ -70,7 +70,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.color && <span className="product-color-dot" title={product.color} />}
         </div>
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-description">{product.description}</p>
+        {/* description not returned by API — omitted */}
         <div className="product-price-row">
           <span className="product-price">
             &#8377;{product.price.toLocaleString("en-IN")}
@@ -82,7 +82,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <span className="review-count">({product.review_count.toLocaleString()})</span>
         </div>
         <div className="product-tags">
-          <span className="product-category">{product.sub_category}</span>
+          <span className="product-category">{product.category}</span>
           {product.color && (
             <span className="product-color">{product.color}</span>
           )}

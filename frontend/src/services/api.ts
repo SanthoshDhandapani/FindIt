@@ -1,7 +1,7 @@
 import type { SearchRequest, SearchResponse } from "@/types/api";
 import { mockProducts } from "./mockData";
 
-const USE_MOCK = true;
+const USE_MOCK = false;
 const API_BASE = "/api/v1";
 
 export async function searchProducts(

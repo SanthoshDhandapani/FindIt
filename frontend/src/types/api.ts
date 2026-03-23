@@ -14,14 +14,12 @@ export interface ProductResult {
   name: string;
   brand: string;
   category: string;
-  sub_category: string;
   color: string | null;
-  description: string;
   price: number;
   rating: number;
   review_count: number;
   relevancy_score: number;
-  image_url: string;
+  image_url: string | null;
 }
 
 export interface SearchResponse {
