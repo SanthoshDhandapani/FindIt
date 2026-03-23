@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SearchBar } from "@/components/SearchBar";
 import { SortBar } from "@/components/SortBar";
 import { ProductGrid } from "@/components/ProductGrid";
@@ -18,9 +18,7 @@ export function SearchPage() {
   const { response, loading, error, search, hasSearched } = useSearch();
   const [sortBy, setSortBy] = useState("relevancy");
 
-  useEffect(() => {
-    search({ query: "", sort_by: "relevancy", top_k: 20 });
-  }, [search]);
+  // Skip initial empty query — show hero with suggestions instead
 
   function handleSearch(query: string) {
     const request: SearchRequest = {
