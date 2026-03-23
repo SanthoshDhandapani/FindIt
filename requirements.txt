@@ -12,7 +12,7 @@ crewai>=1.11.0
 google-genai
 
 # Pinecone
-pinecone-client
+pinecone-client>=4.0,<6
 
 # Embeddings (sentence-transformers/all-MiniLM-L6-v2, 384 dims)
 sentence-transformers>=2.7.0
