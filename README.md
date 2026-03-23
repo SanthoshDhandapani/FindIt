@@ -71,7 +71,7 @@ See [`architecture.html`](architecture.html) for the full interactive architectu
 The three CrewAI agents run sequentially on every search request:
 
 ### Agent 1 — Query analyst
-Converts raw user text into a structured `ParsedIntent` using `gpt-4o-mini` with a JSON output schema.
+Converts raw user text into a structured `ParsedIntent` using `gemini-2.5-flash` with a JSON output schema.
 
 **Input:** `"red Nike shoes under ₹5000 high rated"`
 
@@ -201,7 +201,8 @@ Auto-generated OpenAPI docs available at `http://localhost:8000/docs` when runni
 ### Prerequisites
 - Python 3.11+
 - A Pinecone account (free tier works for development)
-- An OpenAI API key
+- A Gemini API key (free via [Google AI Studio](https://aistudio.google.com/apikey))
+- A HuggingFace token (free via [HuggingFace](https://huggingface.co/settings/tokens))
 - Docker (optional, for full stack)
 
 ### Local development
@@ -211,7 +212,7 @@ cd ecommerce_search
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-# Fill in OPENAI_API_KEY, PINECONE_API_KEY, DATABASE_URL in .env
+# Fill in GEMINI_API_KEY, PINECONE_API_KEY, HF_TOKEN in .env
 uvicorn app.main:app --reload
 ```
 
@@ -253,10 +254,10 @@ Implement files in this sequence to avoid import errors:
 
 | Concern | Tool | Reason |
 |---|---|---|
-| Agent orchestration | CrewAI | Native multi-agent roles and task chaining; LangChain under the hood |
+| Agent orchestration | CrewAI | Native multi-agent roles and task chaining; LiteLLM under the hood |
 | Vector DB | Pinecone | Managed ANN search, namespace-per-category filtering |
-| LLM | gpt-4o-mini | JSON output schema, low cost, fast |
-| Embeddings | text-embedding-3-small | Best cost/quality ratio for product text |
+| LLM | Gemini 2.5 Flash | JSON output schema, free tier, fast |
+| Embeddings | all-MiniLM-L6-v2 | 384 dims, ~80MB, free local inference via sentence-transformers |
 | Reranking | Cohere Rerank v3 | Cross-encoder precision on top-K candidates |
 | Metadata store | PostgreSQL | Product catalog, ratings, click events |
 | Cache | Redis | Sub-10ms repeated query responses |

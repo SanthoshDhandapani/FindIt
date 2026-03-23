@@ -5,15 +5,18 @@ pydantic==2.7.1
 pydantic-settings==2.2.1
 python-dotenv==1.0.1
 
-# CrewAI
+# CrewAI (uses LiteLLM — supports Gemini via gemini/ prefix)
 crewai==0.28.0
 crewai-tools==0.1.6
 
-# OpenAI
-openai==1.30.1
+# Gemini (LLM for intent parsing and agents)
+google-genai
 
 # Pinecone
 pinecone-client==4.1.0
+
+# Embeddings (Qwen3-Embedding-0.6B, 1024 dims)
+sentence-transformers>=2.7.0
 
 # PostgreSQL
 asyncpg==0.29.0
@@ -28,11 +31,6 @@ langsmith==0.1.63
 # Utilities
 httpx==0.27.0
 tenacity==8.3.0
-
-# Phase 3 — HuggingFace embedding fallback
-sentence-transformers==3.0.1
-
-# Phase 3 — Guardrails (uses stdlib re — no extra deps)
 
 # Phase 3 — RAG evaluation
 ragas==0.1.10

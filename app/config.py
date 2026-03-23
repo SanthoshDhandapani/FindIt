@@ -3,12 +3,20 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Core
-    openai_api_key: str
+    gemini_api_key: str
     pinecone_api_key: str
     pinecone_environment: str = "us-east-1"
     pinecone_index_name: str = "ecommerce-search"
-    database_url: str
+    database_url: str = "postgresql+asyncpg://user:password@localhost:5432/ecommerce"
     redis_url: str = "redis://localhost:6379"
+    hf_token: str = ""
+
+    # LLM
+    gemini_model: str = "gemini-2.5-flash"
+
+    # Embeddings
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    embedding_dimensions: int = 384
 
     # Observability (Phase 1 + Phase 3)
     langchain_tracing_v2: bool = False
@@ -18,10 +26,6 @@ class Settings(BaseSettings):
     # App
     app_env: str = "development"
     log_level: str = "INFO"
-
-    # Phase 3 — HuggingFace embedding fallback
-    embedding_provider: str = "openai"  # "openai" | "huggingface"
-    hf_embedding_model: str = "all-MiniLM-L6-v2"
 
     # Phase 3 — Reflection loop
     reflection_relevancy_threshold: float = 0.4

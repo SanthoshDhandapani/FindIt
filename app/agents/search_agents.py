@@ -6,7 +6,8 @@ from app.models.schemas import ParsedIntent, SearchRequest
 # ---------------------------------------------------------------------------
 
 def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
-    # TODO: LLM call (gpt-4o-mini) with JSON output schema
+    # TODO: LLM call using Gemini (gemini-2.5-flash) with JSON output schema
+    # Use: get_gemini_client().models.generate_content() with response_schema=ParsedIntent
     # Extract: category, brand, color, price_min, price_max, sort_by, keywords, specificity
     # Override with any explicit filters passed in request
     raise NotImplementedError
@@ -55,16 +56,19 @@ def compute_relevancy_score(
 
 def build_query_analyst():
     # TODO: Return CrewAI Agent with role="Query Analyst"
+    # Use LLM(model="gemini/gemini-2.5-flash") via CrewAI's LiteLLM integration
     raise NotImplementedError
 
 
 def build_search_strategist():
     # TODO: Return CrewAI Agent with role="Search Strategist"
+    # Use LLM(model="gemini/gemini-2.5-flash") via CrewAI's LiteLLM integration
     raise NotImplementedError
 
 
 def build_results_ranker():
     # TODO: Return CrewAI Agent with role="Results Ranker"
+    # Use LLM(model="gemini/gemini-2.5-flash") via CrewAI's LiteLLM integration
     raise NotImplementedError
 
 

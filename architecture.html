@@ -376,7 +376,7 @@
   <!-- Header -->
   <div class="page-header">
     <h1>E-Commerce search engine</h1>
-    <p>Intelligent product search using CrewAI multi-agent orchestration, Pinecone vector DB, and hybrid semantic + keyword retrieval — Phase 1: text-based search.</p>
+    <p>Intelligent product search using CrewAI multi-agent orchestration, Gemini 2.5 Flash LLM, Qwen3 embeddings, Pinecone vector DB, and hybrid semantic + keyword retrieval — Phase 1: text-based search.</p>
     <div class="chips">
       <span class="chip">Phase 1 — text search</span>
       <span class="chip">CrewAI agents</span>
@@ -408,7 +408,7 @@
       <div class="flow-connector">→</div>
       <div class="flow-step">
         <div class="flow-bubble fb-blue">Embed</div>
-        <div class="flow-label">text-embedding- 3-small</div>
+        <div class="flow-label">MiniLM-L6</div>
       </div>
       <div class="flow-connector">→</div>
       <div class="flow-step">
@@ -496,7 +496,7 @@
     </div>
     <div class="expand" id="query-analyst">
       <div class="panel">
-        Uses <b>gpt-4o-mini</b> with a JSON output schema to convert raw text into a structured <code>ParsedIntent</code> object.<br><br>
+        Uses <b>Gemini 2.5 Flash</b> with a JSON output schema to convert raw text into a structured <code>ParsedIntent</code> object.<br><br>
         Input: <i>"red Nike shoes under ₹5000 high rated"</i><br>
         Output: <code>{ category: "shoes", brand: "Nike", color: "red", price_max: 5000, sort_by: "rating", specificity: "medium" }</code>
         <div class="tags">
@@ -554,7 +554,7 @@
       </div>
       <div class="card accent-blue" onclick="toggle(this,'embedding-svc')">
         <div class="ct">Embedding service</div>
-        <div class="cs">text-embedding-3-small · 1536 dims · index + query time</div>
+        <div class="cs">all-MiniLM-L6-v2 · 384 dims · ~80MB · local inference</div>
       </div>
       <div class="card accent-coral" onclick="toggle(this,'reranker')">
         <div class="ct">Reranker</div>
@@ -583,7 +583,7 @@
     </div>
     <div class="expand" id="embedding-svc">
       <div class="panel">
-        Wraps OpenAI's <b>text-embedding-3-small</b> model (1536 dimensions, best cost/quality ratio for product text).<br><br>
+        Uses <b>all-MiniLM-L6-v2</b> via sentence-transformers (384 dimensions, ~80MB, free local inference).<br><br>
         Called in two contexts:<br>
         &nbsp;1. <b>Index time</b> — product composed text → vector → stored in Pinecone<br>
         &nbsp;2. <b>Query time</b> — search query → vector → cosine similarity search<br><br>
@@ -591,8 +591,8 @@
         <code>[brand] [name] [color] [subcategory] [key_features] [description]</code><br><br>
         The quality of this composition is the single biggest factor in semantic search accuracy.
         <div class="tags">
-          <span class="tag">text-embedding-3-small</span><span class="tag">1536 dims</span>
-          <span class="tag">Batched upsert (100 per call)</span><span class="tag">Retry with exponential backoff</span>
+          <span class="tag">all-MiniLM-L6-v2</span><span class="tag">384 dims</span>
+          <span class="tag">~80MB model size</span><span class="tag">Local inference (no API cost)</span>
         </div>
       </div>
     </div>
@@ -652,7 +652,7 @@
     <div class="grid g3">
       <div class="card accent-green" onclick="toggle(this,'pinecone')">
         <div class="ct">Pinecone</div>
-        <div class="cs">1536-dim product vectors · 3 namespaces · metadata filters</div>
+        <div class="cs">384-dim product vectors · 3 namespaces · metadata filters</div>
       </div>
       <div class="card accent-green" onclick="toggle(this,'postgres')">
         <div class="ct">PostgreSQL</div>
@@ -668,7 +668,7 @@
         Namespaced by product category so searches stay scoped: <code>electronics</code>, <code>shoes</code>, <code>stationery</code>.<br><br>
         Each vector carries rich metadata for filter-at-query-time:<br>
         <code>product_id · name · brand · category · subcategory · color · price · rating · review_count · stock_status · image_url</code><br><br>
-        Index spec: <b>dimension = 1536, metric = cosine, cloud = AWS, serverless</b>.
+        Index spec: <b>dimension = 1024, metric = cosine, cloud = AWS, serverless</b>.
         <div class="tags">
           <span class="tag">Namespace per category</span><span class="tag">Metadata filter at query time</span>
           <span class="tag">Serverless index</span><span class="tag">Upsert on product change</span>
@@ -843,8 +843,8 @@
         <div class="cs">Full agent pipeline traces · per-step latency · LLM call replay</div>
       </div>
       <div class="card accent-gray" onclick="toggle(this,'hf-fallback')">
-        <div class="ct">HuggingFace embedding fallback</div>
-        <div class="cs">Local sentence-transformers · zero API cost for dev/testing</div>
+        <div class="ct">OpenAI embedding fallback</div>
+        <div class="cs">Optional OpenAI text-embedding-3-small · for comparison benchmarking</div>
       </div>
     </div>
     <div class="expand" id="reflection">
@@ -949,15 +949,12 @@
     </div>
     <div class="expand" id="hf-fallback">
       <div class="panel">
-        <b>Pattern:</b> Cost optimization (from <code>Orchestration Frameworks/LlamaIndex/RAG_ChromaDB.ipynb</code>)<br><br>
-        Add <code>embed_text_local()</code> using HuggingFace <code>sentence-transformers</code> (e.g. <code>all-MiniLM-L6-v2</code>) as a fallback when:<br><br>
-        &nbsp;· OpenAI API is down or rate-limited<br>
-        &nbsp;· Running in development/testing (avoid API costs)<br>
-        &nbsp;· Batch indexing large product catalogs<br><br>
-        Toggle via <code>EMBEDDING_PROVIDER=openai|huggingface</code> in <code>.env</code>.
+        <b>Optional:</b> Add OpenAI <code>text-embedding-3-small</code> (1536 dims) as an alternative embedding provider for benchmarking against Qwen3.<br><br>
+        Primary embedding is <b>all-MiniLM-L6-v2</b> (384 dims, free local inference). OpenAI can be used to compare retrieval quality if needed.<br><br>
+        Note: Switching providers requires re-indexing all products since dimensions differ (1024 vs 1536).
         <div class="tags">
-          <span class="tag">sentence-transformers</span><span class="tag">Local inference</span>
-          <span class="tag">Zero API cost</span><span class="tag">Configurable provider</span>
+          <span class="tag">Benchmarking only</span><span class="tag">Requires re-indexing</span>
+          <span class="tag">Different dimensions</span>
         </div>
       </div>
     </div>

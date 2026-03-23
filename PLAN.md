@@ -14,7 +14,7 @@ All functions are stubbed with `NotImplementedError`. Implement in this order to
 
 | Step | File | Functions | Status |
 |---|---|---|---|
-| 1 | `app/db/clients.py` | `get_pinecone_index()`, `get_openai()` | Stub |
+| 1 | `app/db/clients.py` | `get_pinecone_index()`, `get_gemini_client()` | Stub |
 | 2 | `app/services/embedding.py` | `embed_text()`, `embed_batch()`, `upsert_product()`, `upsert_products_batch()`, `delete_product()` | Stub |
 | 3 | `app/agents/search_agents.py` | `parse_intent_with_llm()`, `decide_alpha()`, `build_pinecone_filter()`, `compute_relevancy_score()` | Stub |
 | 4 | `app/agents/search_agents.py` | `build_query_analyst()`, `build_search_strategist()`, `build_results_ranker()` | Stub |
@@ -27,18 +27,19 @@ All functions are stubbed with `NotImplementedError`. Implement in this order to
 
 ### Key decisions
 
-- **Embedding model:** OpenAI `text-embedding-3-small` (1536 dims) — best cost/quality ratio
-- **LLM:** `gpt-4o-mini` — JSON output schema, low cost, fast
-- **Vector DB:** Pinecone serverless — namespace per category, metadata filtering
+- **Embedding model:** all-MiniLM-L6-v2 (384 dims, ~80MB) — free local inference via sentence-transformers
+- **LLM:** Gemini 2.5 Flash — JSON output schema, free tier, fast
+- **Vector DB:** Pinecone serverless — namespace per category, metadata filtering, dim=384
 - **Keyword ranking:** Token overlap simulation (true BM25 requires Pinecone sparse-dense upgrade)
 - **RRF damping constant:** k = 60
 
 ### Environment variables required
 
 ```
-OPENAI_API_KEY=
+GEMINI_API_KEY=
 PINECONE_API_KEY=
 PINECONE_INDEX=ecommerce-search
+HF_TOKEN=
 DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/ecommerce
 REDIS_URL=redis://localhost:6379
 LANGCHAIN_TRACING_V2=false
@@ -86,7 +87,6 @@ Improvements derived from [Agentic Design Patterns](../Fourkites_AIExcellence/Ag
 | 5 | Input guardrails | Guardrails | `app/middleware/guardrails.py` (new) | Medium | Phase 1 step 7 |
 | 6 | Multi-agent handoff (compound queries) | Multi-Agent | `app/agents/search_agents.py` | Medium | Phase 1 step 3 |
 | 7 | RAG evaluation with Ragas | Evaluation | `scripts/evaluate_search.py` (new) | Medium | Phase 1 step 9 |
-| 8 | HuggingFace embedding fallback | Cost optimization | `app/services/embedding.py`, `app/config.py` | Low | Phase 1 step 2 |
 
 ### Detailed implementation notes
 
