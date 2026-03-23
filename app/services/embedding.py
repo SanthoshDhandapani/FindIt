@@ -1,23 +1,31 @@
-from app.models.schemas import Product
+from sentence_transformers import SentenceTransformer
 
+from app.config import settings
+from app.models.schemas import Product
 
 # ---------------------------------------------------------------------------
 # Embedding service using all-MiniLM-L6-v2 via sentence-transformers
 # Model: sentence-transformers/all-MiniLM-L6-v2 (384 dims, 256 max tokens, ~80MB)
 # ---------------------------------------------------------------------------
 
+_model = None
+
+
+def _get_model() -> SentenceTransformer:
+    global _model
+    if _model is None:
+        _model = SentenceTransformer(settings.embedding_model)
+    return _model
+
+
 def embed_text(text: str) -> list[float]:
-    # TODO: Load SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2") as lazy singleton
-    # TODO: Encode text and return 384-dim vector
-    # Use model.encode(text) → list[float]
-    raise NotImplementedError
+    model = _get_model()
+    return model.encode(text).tolist()
 
 
 def embed_batch(texts: list[str]) -> list[list[float]]:
-    # TODO: Batch encode multiple texts using same singleton model
-    # More efficient than calling embed_text in a loop
-    # Use model.encode(texts) → list[list[float]]
-    raise NotImplementedError
+    model = _get_model()
+    return model.encode(texts).tolist()
 
 
 def upsert_product(product: Product) -> None:
