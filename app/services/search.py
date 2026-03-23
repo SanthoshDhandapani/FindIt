@@ -43,16 +43,16 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
     from concurrent.futures import ThreadPoolExecutor
 
     t_start = time.perf_counter()
+    timings: dict[str, float] = {}
 
     # Steps 1 + 4 — run Gemini intent parsing and embedding in PARALLEL
-    # (they're independent — intent doesn't need vector, vector doesn't need intent)
+    t = time.perf_counter()
     with ThreadPoolExecutor(max_workers=2) as executor:
         intent_future = executor.submit(parse_intent_with_llm, request.query, request)
         vector_future = executor.submit(embed_text, request.query)
         intent = intent_future.result()
         vector = vector_future.result()
-
-    logger.debug("Intent: %s", intent)
+    timings["intent+embed (parallel)"] = (time.perf_counter() - t) * 1000
 
     # Step 2 — decide alpha (semantic vs keyword blend)
     alpha = decide_alpha(intent)
@@ -64,7 +64,13 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
     namespaces = [intent.category] if intent.category else _ALL_NAMESPACES
     top_k_candidates = max(request.top_k * 3, 50)
 
+    logger.info(
+        "SEARCH [%s] intent: category=%s brand=%s color=%s alpha=%.2f namespaces=%s filters=%s",
+        request.query, intent.category, intent.brand, intent.color, alpha, namespaces, filters,
+    )
+
     # Steps 5 + 6 — run semantic and keyword retrieval in PARALLEL
+    t = time.perf_counter()
     with ThreadPoolExecutor(max_workers=2) as executor:
         def _run_semantic():
             results = []
@@ -82,11 +88,15 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
         kw_future = executor.submit(_run_keyword)
         semantic_results = sem_future.result()
         keyword_results = kw_future.result()
+    timings["pinecone (parallel)"] = (time.perf_counter() - t) * 1000
 
     # Step 7 — merge with Reciprocal Rank Fusion
+    t = time.perf_counter()
     merged = _reciprocal_rank_fusion(semantic_results, keyword_results, alpha)
+    timings["rrf_merge"] = (time.perf_counter() - t) * 1000
 
     # Step 8 — compute relevancy score per result
+    t = time.perf_counter()
     scored: list[dict] = []
     for item in merged:
         meta = item.get("metadata", {})
@@ -96,10 +106,20 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
             review_count=int(meta.get("review_count", 0)),
         )
         scored.append(item)
+    timings["scoring"] = (time.perf_counter() - t) * 1000
 
     # Step 9 — sort and build SearchResponse
     sorted_results = _sort_results(scored, request.sort_by)
     top_results = sorted_results[: request.top_k]
+
+    # Log performance breakdown
+    total_ms = (time.perf_counter() - t_start) * 1000
+    timing_str = " | ".join(f"{k}: {v:.0f}ms" for k, v in timings.items())
+    logger.info(
+        "PERF [%s] total=%.0fms | %s | semantic=%d kw=%d merged=%d returned=%d",
+        request.query, total_ms, timing_str,
+        len(semantic_results), len(keyword_results), len(merged), len(top_results),
+    )
 
     product_results = [
         ProductResult(

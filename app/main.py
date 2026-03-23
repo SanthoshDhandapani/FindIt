@@ -10,6 +10,11 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from app.api.routes import router
 from app.config import settings
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
+    datefmt="%H:%M:%S",
+)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(

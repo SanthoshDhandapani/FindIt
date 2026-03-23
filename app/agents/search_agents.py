@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+import time
 
 from google.genai import types
 
@@ -74,13 +75,14 @@ def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
             cached = redis_client.get(cache_key)
             if cached:
                 data = json.loads(cached)
-                logger.debug("Intent cache HIT for: %s", query)
+                logger.info("INTENT [%s] cache=HIT", query)
                 return _build_intent(data, request)
         except Exception:
             pass
 
     prompt = f'User query: "{query}"'
 
+    t = time.perf_counter()
     try:
         response = get_gemini_client().models.generate_content(
             model=settings.gemini_model,
@@ -91,6 +93,8 @@ def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
             ),
         )
         data = json.loads(response.text)
+        gemini_ms = (time.perf_counter() - t) * 1000
+        logger.info("INTENT [%s] cache=MISS gemini=%.0fms → %s", query, gemini_ms, data)
 
         # Cache the LLM result in Redis (TTL 5 min)
         if redis_client:
@@ -99,7 +103,8 @@ def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
             except Exception:
                 pass
     except Exception as exc:
-        logger.warning("Gemini intent parse failed (%s) — using fallback", exc)
+        gemini_ms = (time.perf_counter() - t) * 1000
+        logger.warning("INTENT [%s] FAILED after %.0fms (%s) — using fallback", query, gemini_ms, exc)
         data = {}
 
     return _build_intent(data, request)
