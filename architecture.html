@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Search Engine — Architecture</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:           #ffffff;
+    --bg2:          #f7f7f5;
+    --bg3:          #f0efe9;
+    --border:       rgba(0,0,0,0.10);
+    --border-mid:   rgba(0,0,0,0.18);
+    --text:         #1a1a18;
+    --text2:        #6b6b67;
+    --text3:        #a0a09b;
+    --radius-sm:    6px;
+    --radius-md:    8px;
+    --radius-lg:    12px;
+    --radius-xl:    16px;
+
+    --c-purple-bg:  #EEEDFE; --c-purple-border: #AFA9EC; --c-purple-text: #3C3489; --c-purple-sub: #534AB7;
+    --c-teal-bg:    #E1F5EE; --c-teal-border:   #5DCAA5; --c-teal-text:   #085041; --c-teal-sub:   #0F6E56;
+    --c-blue-bg:    #E6F1FB; --c-blue-border:   #85B7EB; --c-blue-text:   #0C447C; --c-blue-sub:   #185FA5;
+    --c-green-bg:   #EAF3DE; --c-green-border:  #97C459; --c-green-text:  #27500A; --c-green-sub:  #3B6D11;
+    --c-gray-bg:    #F1EFE8; --c-gray-border:   #B4B2A9; --c-gray-text:   #444441; --c-gray-sub:   #5F5E5A;
+    --c-amber-bg:   #FAEEDA; --c-amber-border:  #EF9F27; --c-amber-text:  #633806; --c-amber-sub:  #854F0B;
+    --c-coral-bg:   #FAECE7; --c-coral-border:  #F0997B; --c-coral-text:  #712B13; --c-coral-sub:  #993C1D;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:           #1c1c1a;
+      --bg2:          #242422;
+      --bg3:          #2c2c2a;
+      --border:       rgba(255,255,255,0.09);
+      --border-mid:   rgba(255,255,255,0.20);
+      --text:         #e8e8e2;
+      --text2:        #9b9b96;
+      --text3:        #6b6b67;
+
+      --c-purple-bg: #26215C; --c-purple-border: #7F77DD; --c-purple-text: #CECBF6; --c-purple-sub: #AFA9EC;
+      --c-teal-bg:   #04342C; --c-teal-border:   #1D9E75; --c-teal-text:   #9FE1CB; --c-teal-sub:   #5DCAA5;
+      --c-blue-bg:   #042C53; --c-blue-border:   #378ADD; --c-blue-text:   #B5D4F4; --c-blue-sub:   #85B7EB;
+      --c-green-bg:  #173404; --c-green-border:  #639922; --c-green-text:  #C0DD97; --c-green-sub:  #97C459;
+      --c-gray-bg:   #2C2C2A; --c-gray-border:   #888780; --c-gray-text:   #D3D1C7; --c-gray-sub:   #B4B2A9;
+      --c-amber-bg:  #412402; --c-amber-border:  #BA7517; --c-amber-text:  #FAC775; --c-amber-sub:  #EF9F27;
+      --c-coral-bg:  #4A1B0C; --c-coral-border:  #D85A30; --c-coral-text:  #F5C4B3; --c-coral-sub:  #F0997B;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 28px 80px;
+  }
+
+  /* ── Header ── */
+  .page-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--border-mid);
+  }
+  .page-header h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .page-header p {
+    font-size: 14px;
+    color: var(--text2);
+    max-width: 560px;
+    line-height: 1.65;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 14px;
+  }
+  .chip {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border-mid);
+    color: var(--text2);
+    background: var(--bg2);
+  }
+
+  /* ── Hint ── */
+  .hint {
+    font-size: 12px;
+    color: var(--text3);
+    margin-bottom: 20px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 18px; }
+
+  .layer-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  .pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 11px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+  .pill-ui     { background: var(--c-purple-bg); color: var(--c-purple-text); border: 0.5px solid var(--c-purple-border); }
+  .pill-agents { background: var(--c-teal-bg);   color: var(--c-teal-text);   border: 0.5px solid var(--c-teal-border); }
+  .pill-core   { background: var(--c-blue-bg);   color: var(--c-blue-text);   border: 0.5px solid var(--c-blue-border); }
+  .pill-store  { background: var(--c-green-bg);  color: var(--c-green-text);  border: 0.5px solid var(--c-green-border); }
+  .pill-ops    { background: var(--c-gray-bg);   color: var(--c-gray-text);   border: 0.5px solid var(--c-gray-border); }
+
+  .layer-name { font-size: 15px; font-weight: 500; color: var(--text); }
+  .layer-desc {
+    font-size: 13px;
+    color: var(--text2);
+    margin-bottom: 10px;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  /* ── Grid ── */
+  .grid { display: grid; gap: 7px; margin-bottom: 7px; }
+  .g1 { grid-template-columns: 1fr; }
+  .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  @media (max-width: 580px) {
+    .g3 { grid-template-columns: 1fr; }
+    .g2 { grid-template-columns: 1fr; }
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    user-select: none;
+  }
+  .card:hover { border-color: var(--border-mid); background: var(--bg2); }
+
+  .card.open.accent-purple { border-color: var(--c-purple-border); background: var(--c-purple-bg); }
+  .card.open.accent-purple .ct { color: var(--c-purple-text); }
+  .card.open.accent-purple .cs { color: var(--c-purple-sub); }
+
+  .card.open.accent-teal { border-color: var(--c-teal-border); background: var(--c-teal-bg); }
+  .card.open.accent-teal .ct { color: var(--c-teal-text); }
+  .card.open.accent-teal .cs { color: var(--c-teal-sub); }
+
+  .card.open.accent-blue { border-color: var(--c-blue-border); background: var(--c-blue-bg); }
+  .card.open.accent-blue .ct { color: var(--c-blue-text); }
+  .card.open.accent-blue .cs { color: var(--c-blue-sub); }
+
+  .card.open.accent-green { border-color: var(--c-green-border); background: var(--c-green-bg); }
+  .card.open.accent-green .ct { color: var(--c-green-text); }
+  .card.open.accent-green .cs { color: var(--c-green-sub); }
+
+  .card.open.accent-gray { border-color: var(--c-gray-border); background: var(--c-gray-bg); }
+  .card.open.accent-gray .ct { color: var(--c-gray-text); }
+  .card.open.accent-gray .cs { color: var(--c-gray-sub); }
+
+  .card.open.accent-amber { border-color: var(--c-amber-border); background: var(--c-amber-bg); }
+  .card.open.accent-amber .ct { color: var(--c-amber-text); }
+  .card.open.accent-amber .cs { color: var(--c-amber-sub); }
+
+  .card.open.accent-coral { border-color: var(--c-coral-border); background: var(--c-coral-bg); }
+  .card.open.accent-coral .ct { color: var(--c-coral-text); }
+  .card.open.accent-coral .cs { color: var(--c-coral-sub); }
+
+  .ct { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .cs { font-size: 12px; color: var(--text2); }
+
+  /* ── Expand panel ── */
+  .expand { overflow: hidden; max-height: 0; transition: max-height .32s ease; }
+  .expand.open { max-height: 700px; }
+
+  .panel {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.68;
+    margin-top: 3px;
+  }
+  .panel b  { font-weight: 500; color: var(--text); }
+  .panel i  { color: var(--text3); font-style: italic; }
+  .panel code {
+    font-family: "SF Mono", "Fira Mono", monospace;
+    font-size: 11.5px;
+    background: var(--bg3);
+    border: 0.5px solid var(--border-mid);
+    border-radius: 4px;
+    padding: 1px 5px;
+    color: var(--text);
+  }
+  .panel .note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text3);
+    border-left: 2px solid var(--border-mid);
+    padding-left: 10px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .tag {
+    font-size: 11px;
+    background: var(--bg);
+    border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-sm);
+    padding: 3px 8px;
+    color: var(--text2);
+  }
+
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--text2);
+  }
+  .mdot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #1D9E75;
+    flex-shrink: 0;
+  }
+
+  /* ── Flow arrow ── */
+  .arrow {
+    text-align: center;
+    color: var(--text3);
+    font-size: 20px;
+    padding: 3px 0 5px;
+    user-select: none;
+    line-height: 1;
+  }
+
+  /* ── Data flow diagram ── */
+  .flow-diagram {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .flow-diagram h2 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    min-width: 80px;
+  }
+  .flow-bubble {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    border: 0.5px solid var(--border-mid);
+  }
+  .flow-label {
+    font-size: 11px;
+    color: var(--text2);
+    text-align: center;
+    line-height: 1.4;
+    max-width: 72px;
+  }
+  .flow-connector {
+    flex: 0 0 24px;
+    text-align: center;
+    color: var(--text3);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .fb-purple { background: var(--c-purple-bg); color: var(--c-purple-text); border-color: var(--c-purple-border); }
+  .fb-teal   { background: var(--c-teal-bg);   color: var(--c-teal-text);   border-color: var(--c-teal-border); }
+  .fb-blue   { background: var(--c-blue-bg);   color: var(--c-blue-text);   border-color: var(--c-blue-border); }
+  .fb-coral  { background: var(--c-coral-bg);  color: var(--c-coral-text);  border-color: var(--c-coral-border); }
+  .fb-green  { background: var(--c-green-bg);  color: var(--c-green-text);  border-color: var(--c-green-border); }
+  .fb-amber  { background: var(--c-amber-bg);  color: var(--c-amber-text);  border-color: var(--c-amber-border); }
+  .fb-gray   { background: var(--c-gray-bg);   color: var(--c-gray-text);   border-color: var(--c-gray-border); }
+
+  /* ── Divider & CTA ── */
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--border-mid);
+    margin: 32px 0 24px;
+  }
+  .cta-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cta-btn {
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-mid);
+    color: var(--text2);
+    background: var(--bg);
+    cursor: pointer;
+    transition: background .15s, color .15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .cta-btn:hover { background: var(--bg2); color: var(--text); }
+
+  /* ── Metrics overview bar ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .kpi-card {
+    background: var(--bg2);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    border: 0.5px solid var(--border);
+  }
+  .kpi-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+  .kpi-value { font-size: 13px; font-weight: 500; color: var(--text); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h1>E-Commerce search engine</h1>
+    <p>Intelligent product search using CrewAI multi-agent orchestration, Pinecone vector DB, and hybrid semantic + keyword retrieval — Phase 1: text-based search.</p>
+    <div class="chips">
+      <span class="chip">Phase 1 — text search</span>
+      <span class="chip">CrewAI agents</span>
+      <span class="chip">Pinecone vector DB</span>
+      <span class="chip">FastAPI</span>
+      <span class="chip">Electronics · Shoes · Stationery</span>
+      <span class="chip">AWS ECS deployment</span>
+    </div>
+  </div>
+
+  <!-- Request flow diagram -->
+  <div class="flow-diagram">
+    <h2>Request flow — query to ranked results</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-bubble fb-purple">UI</div>
+        <div class="flow-label">User query</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-teal">A1</div>
+        <div class="flow-label">Query analyst</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-teal">A2</div>
+        <div class="flow-label">Search strategist</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-blue">Embed</div>
+        <div class="flow-label">text-embedding- 3-small</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-green">Pine- cone</div>
+        <div class="flow-label">Vector + keyword search</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-blue">RRF</div>
+        <div class="flow-label">Merge + fuse results</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-teal">A3</div>
+        <div class="flow-label">Results ranker</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-bubble fb-purple">UI</div>
+        <div class="flow-label">Ranked results</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI overview -->
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">Search relevancy</div><div class="kpi-value">Cross-encoder score</div></div>
+    <div class="kpi-card"><div class="kpi-label">Click-through rate</div><div class="kpi-value">Logged per session</div></div>
+    <div class="kpi-card"><div class="kpi-label">Query latency</div><div class="kpi-value">p50 / p95 tracked</div></div>
+    <div class="kpi-card"><div class="kpi-label">Index update lag</div><div class="kpi-value">PG → Pinecone delta</div></div>
+    <div class="kpi-card"><div class="kpi-label">Cache hit rate</div><div class="kpi-value">Redis TTL 5 min</div></div>
+  </div>
+
+  <p class="hint">Click any component to expand its explanation.</p>
+
+  <!-- Layer 1 -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill pill-ui">Layer 1</span>
+      <span class="layer-name">React search UI</span>
+    </div>
+    <p class="layer-desc">Entry point for all user interactions. Sends structured search requests to the FastAPI gateway and renders a results grid with relevancy badges.</p>
+    <div class="grid g1">
+      <div class="card accent-purple" onclick="toggle(this,'react-ui')">
+        <div class="ct">React search UI</div>
+        <div class="cs">Text query · category filter · sort by rating / price · relevancy badge per result</div>
+      </div>
+    </div>
+    <div class="expand" id="react-ui">
+      <div class="panel">
+        Each search fires a <b>POST /api/v1/search</b> to the FastAPI gateway with the full <code>SearchRequest</code> payload. Results render as product cards showing: name, brand, price, rating, and a <b>relevancy score (0–1)</b> computed by the ranker agent.<br><br>
+        Filters (category, brand, price range) are passed as <b>Pinecone metadata filters</b> — they are applied inside the vector DB, not as post-fetch JS filtering, so only matching products are ever retrieved.
+        <div class="tags">
+          <span class="tag">Free-text search input</span>
+          <span class="tag">Category dropdown: Electronics / Shoes / Stationery</span>
+          <span class="tag">Sort: relevancy · rating · price asc · price desc</span>
+          <span class="tag">Product card with 0–1 relevancy badge</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- Layer 2 -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill pill-agents">Layer 2</span>
+      <span class="layer-name">CrewAI multi-agent orchestration</span>
+    </div>
+    <p class="layer-desc">Three specialised CrewAI agents run in sequence — each with a single responsibility. No LangChain or LangGraph needed; CrewAI handles task chaining natively.</p>
+    <div class="grid g3">
+      <div class="card accent-teal" onclick="toggle(this,'query-analyst')">
+        <div class="ct">Query analyst</div>
+        <div class="cs">Parses intent · extracts brand, color, price, sort preference</div>
+      </div>
+      <div class="card accent-teal" onclick="toggle(this,'search-strategist')">
+        <div class="ct">Search strategist</div>
+        <div class="cs">Decides alpha blend · builds Pinecone metadata filter</div>
+      </div>
+      <div class="card accent-teal" onclick="toggle(this,'results-ranker')">
+        <div class="ct">Results ranker</div>
+        <div class="cs">Blends similarity + rating + reviews → relevancy score 0–1</div>
+      </div>
+    </div>
+    <div class="expand" id="query-analyst">
+      <div class="panel">
+        Uses <b>gpt-4o-mini</b> with a JSON output schema to convert raw text into a structured <code>ParsedIntent</code> object.<br><br>
+        Input: <i>"red Nike shoes under ₹5000 high rated"</i><br>
+        Output: <code>{ category: "shoes", brand: "Nike", color: "red", price_max: 5000, sort_by: "rating", specificity: "medium" }</code>
+        <div class="tags">
+          <span class="tag">LLM JSON mode output</span><span class="tag">Pydantic schema validation</span>
+          <span class="tag">Brand + color extraction</span><span class="tag">Price range parsing</span>
+          <span class="tag">Specificity: high / medium / low</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="search-strategist">
+      <div class="panel">
+        Decides <b>how</b> to search based on query specificity, then constructs the Pinecone query parameters.<br><br>
+        <b>Alpha (semantic blend weight):</b><br>
+        &nbsp;· Exact model name (high specificity) → <code>alpha = 0.2</code> keyword-heavy<br>
+        &nbsp;· Descriptive/vague (low specificity)  → <code>alpha = 0.85</code> semantic-heavy<br>
+        &nbsp;· Mixed (medium, default)               → <code>alpha = 0.6</code> balanced hybrid<br><br>
+        Also sets <b>top_k</b> (20–50 candidates) and routes to the correct <b>Pinecone namespace</b> (electronics / shoes / stationery).
+        <div class="tags">
+          <span class="tag">Alpha blend decision</span><span class="tag">Namespace routing</span>
+          <span class="tag">Metadata filter construction</span><span class="tag">top_k sizing</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="results-ranker">
+      <div class="panel">
+        Takes top-K Pinecone candidates and re-scores each using a <b>cross-encoder</b> model for precision, then blends with social proof signals.<br><br>
+        <b>Scoring formula:</b><br>
+        <code>score = (1 - α) × similarity + α × (rating/5) + review_boost</code><br><br>
+        where <code>review_boost = min(review_count / 1000, 1.0) × 0.05</code>
+        <div class="metrics">
+          <span class="metric"><span class="mdot"></span>Directly impacts search relevancy score KPI</span>
+          <span class="metric"><span class="mdot"></span>Directly impacts click-through rate KPI</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Cross-encoder reranking</span><span class="tag">Rating weight blend</span>
+          <span class="tag">Review count boost</span><span class="tag">Final 0–1 relevancy score</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- Layer 3 -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill pill-core">Layer 3</span>
+      <span class="layer-name">Core services</span>
+    </div>
+    <p class="layer-desc">The processing engine — hybrid search combining semantic and keyword signals, embedding generation, cross-encoder reranking, product ingestion, and the API gateway.</p>
+    <div class="grid g3" style="margin-bottom:7px">
+      <div class="card accent-blue" onclick="toggle(this,'hybrid-search')">
+        <div class="ct">Hybrid search engine</div>
+        <div class="cs">Semantic cosine + BM25 keyword · merged via RRF</div>
+      </div>
+      <div class="card accent-blue" onclick="toggle(this,'embedding-svc')">
+        <div class="ct">Embedding service</div>
+        <div class="cs">text-embedding-3-small · 1536 dims · index + query time</div>
+      </div>
+      <div class="card accent-coral" onclick="toggle(this,'reranker')">
+        <div class="ct">Reranker</div>
+        <div class="cs">Cross-encoder on top-K candidates · second-pass precision</div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div class="card accent-amber" onclick="toggle(this,'ingestion')">
+        <div class="ct">Product ingestion pipeline</div>
+        <div class="cs">PostgreSQL → compose text → embed → upsert to Pinecone</div>
+      </div>
+      <div class="card accent-blue" onclick="toggle(this,'fastapi')">
+        <div class="ct">FastAPI gateway</div>
+        <div class="cs">/search · /index · /index/bulk · /metrics · /health</div>
+      </div>
+    </div>
+    <div class="expand" id="hybrid-search">
+      <div class="panel">
+        Runs two parallel retrieval strategies and merges their ranked lists using <b>Reciprocal Rank Fusion (RRF)</b>.<br><br>
+        <b>Semantic path:</b> query embedded → cosine similarity search in Pinecone<br>
+        <b>Keyword path:</b> BM25 tf-idf scoring on product name + description fields<br><br>
+        <b>RRF formula:</b> <code>score = α × 1/(k + sem_rank) + (1-α) × 1/(k + kw_rank)</code><br>
+        where <code>k = 60</code> (damping constant) and <code>α</code> comes from the Search Strategist.
+        <div class="note">To enable true sparse BM25 in Pinecone, upgrade to a sparse-dense hybrid index. The starter template simulates keyword ranking via token overlap scoring.</div>
+      </div>
+    </div>
+    <div class="expand" id="embedding-svc">
+      <div class="panel">
+        Wraps OpenAI's <b>text-embedding-3-small</b> model (1536 dimensions, best cost/quality ratio for product text).<br><br>
+        Called in two contexts:<br>
+        &nbsp;1. <b>Index time</b> — product composed text → vector → stored in Pinecone<br>
+        &nbsp;2. <b>Query time</b> — search query → vector → cosine similarity search<br><br>
+        <b>Product text composition format:</b><br>
+        <code>[brand] [name] [color] [subcategory] [key_features] [description]</code><br><br>
+        The quality of this composition is the single biggest factor in semantic search accuracy.
+        <div class="tags">
+          <span class="tag">text-embedding-3-small</span><span class="tag">1536 dims</span>
+          <span class="tag">Batched upsert (100 per call)</span><span class="tag">Retry with exponential backoff</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="reranker">
+      <div class="panel">
+        Applies a <b>cross-encoder model</b> (Cohere Rerank or a local model) as a second-pass precision stage after Pinecone retrieval.<br><br>
+        <b>Why not use it for the full index?</b> Cross-encoders see the query and document together (joint encoding), making them far more accurate than bi-encoder similarity — but also 10–100× slower. By applying it only to the top-K candidates already filtered by Pinecone, you get high precision without sacrificing throughput.<br><br>
+        Recommended: <b>Cohere Rerank v3</b> for hosted, or <b>cross-encoder/ms-marco-MiniLM-L-6-v2</b> for local.
+        <div class="metrics">
+          <span class="metric"><span class="mdot"></span>Improves NDCG@10</span>
+          <span class="metric"><span class="mdot"></span>Reduces false positives in top results</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="ingestion">
+      <div class="panel">
+        The data onboarding pipeline — triggered on every product create or update event.<br><br>
+        <b>Steps:</b><br>
+        &nbsp;1. Read product record from PostgreSQL<br>
+        &nbsp;2. Compose text: <code>product.to_embedding_text()</code><br>
+        &nbsp;3. Call embedding service → 1536-dim vector<br>
+        &nbsp;4. Upsert vector + metadata to Pinecone namespace (= product category)<br><br>
+        Bulk ingestion batches 100 products per embedding API call for efficiency.
+        <div class="metrics">
+          <span class="metric"><span class="mdot"></span>Index update latency KPI measured here</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Single product ingest</span><span class="tag">Bulk batch ingest</span>
+          <span class="tag">Namespace: electronics / shoes / stationery</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="fastapi">
+      <div class="panel">
+        Async HTTP layer (FastAPI + uvicorn) between the React UI and all backend services. Auto-generates OpenAPI docs at <code>/docs</code>.<br><br>
+        <b>Endpoints:</b><br>
+        &nbsp;<code>POST /api/v1/search</code> — full search pipeline<br>
+        &nbsp;<code>POST /api/v1/index</code> — ingest single product<br>
+        &nbsp;<code>POST /api/v1/index/bulk</code> — batch ingest<br>
+        &nbsp;<code>DELETE /api/v1/index/{id}</code> — remove product<br>
+        &nbsp;<code>GET /api/v1/metrics</code> — Prometheus scrape<br>
+        &nbsp;<code>GET /api/v1/health</code> — health check<br><br>
+        Middleware to add: request latency timer, Redis cache check, click event logger.
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- Layer 4 -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill pill-store">Layer 4</span>
+      <span class="layer-name">Storage</span>
+    </div>
+    <p class="layer-desc">Three stores with distinct roles — vectors for similarity search, structured product data, and a query result cache.</p>
+    <div class="grid g3">
+      <div class="card accent-green" onclick="toggle(this,'pinecone')">
+        <div class="ct">Pinecone</div>
+        <div class="cs">1536-dim product vectors · 3 namespaces · metadata filters</div>
+      </div>
+      <div class="card accent-green" onclick="toggle(this,'postgres')">
+        <div class="ct">PostgreSQL</div>
+        <div class="cs">Product catalog · ratings · click events · source of truth</div>
+      </div>
+      <div class="card accent-amber" onclick="toggle(this,'redis')">
+        <div class="ct">Redis</div>
+        <div class="cs">Query result cache · TTL 5 min · session data</div>
+      </div>
+    </div>
+    <div class="expand" id="pinecone">
+      <div class="panel">
+        Namespaced by product category so searches stay scoped: <code>electronics</code>, <code>shoes</code>, <code>stationery</code>.<br><br>
+        Each vector carries rich metadata for filter-at-query-time:<br>
+        <code>product_id · name · brand · category · subcategory · color · price · rating · review_count · stock_status · image_url</code><br><br>
+        Index spec: <b>dimension = 1536, metric = cosine, cloud = AWS, serverless</b>.
+        <div class="tags">
+          <span class="tag">Namespace per category</span><span class="tag">Metadata filter at query time</span>
+          <span class="tag">Serverless index</span><span class="tag">Upsert on product change</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="postgres">
+      <div class="panel">
+        Source of truth for all structured product data. Pinecone is a derived index — PostgreSQL is the canonical record.<br><br>
+        <b>Key tables:</b> <code>products</code>, <code>ratings</code>, <code>categories</code>, <code>click_events</code><br><br>
+        <code>click_events</code> logs every result click with position, product_id, and query. This is used offline to compute <b>NDCG@10</b> — comparing which positions users actually clicked against what the ranker returned.
+      </div>
+    </div>
+    <div class="expand" id="redis">
+      <div class="panel">
+        Caches full <code>SearchResponse</code> objects for repeated or near-identical queries, bypassing the full agent pipeline.<br><br>
+        <b>TTL rules:</b><br>
+        &nbsp;· Default queries → 5 minutes<br>
+        &nbsp;· Sort by rating → 30 seconds (ratings change frequently)<br>
+        &nbsp;· Cache key = hash(query + filters + sort_by)<br><br>
+        Typical cached response: <b>&lt;10ms</b> vs <b>300–800ms</b> for a full pipeline run.
+        <div class="metrics">
+          <span class="metric"><span class="mdot"></span>Directly impacts query processing time KPI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- Layer 5 -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill pill-ops">Layer 5</span>
+      <span class="layer-name">Observability &amp; deployment</span>
+    </div>
+    <p class="layer-desc">Full-stack visibility into agent traces, search KPIs, and repeatable Docker-based deployment to AWS ECS or Lambda.</p>
+    <div class="grid g3">
+      <div class="card accent-gray" onclick="toggle(this,'langsmith')">
+        <div class="ct">LangSmith / Phoenix</div>
+        <div class="cs">Agent pipeline traces · per-step latency · LLM call replay</div>
+      </div>
+      <div class="card accent-gray" onclick="toggle(this,'grafana')">
+        <div class="ct">Prometheus + Grafana</div>
+        <div class="cs">5 search KPI dashboards · scraped every 15 s</div>
+      </div>
+      <div class="card accent-gray" onclick="toggle(this,'cicd')">
+        <div class="ct">Docker + CI/CD</div>
+        <div class="cs">GitHub Actions → ECR → ECS rolling deploy</div>
+      </div>
+    </div>
+    <div class="expand" id="langsmith">
+      <div class="panel">
+        Traces every agent pipeline run end-to-end. Each span captures:<br>
+        &nbsp;· Query analyst LLM call (input prompt, output JSON, latency)<br>
+        &nbsp;· Search strategist decision (alpha, filters, namespace)<br>
+        &nbsp;· Pinecone query (vector, filter, top_k, result count)<br>
+        &nbsp;· Reranker call (candidates in, ranked list out)<br>
+        &nbsp;· Total pipeline latency<br><br>
+        Essential for debugging degraded relevancy — you can replay any request and inspect every agent's exact inputs and outputs. Connect via <code>LANGCHAIN_TRACING_V2=true</code> in <code>.env</code>.
+      </div>
+    </div>
+    <div class="expand" id="grafana">
+      <div class="panel">
+        FastAPI exposes <code>GET /api/v1/metrics</code> (Prometheus format), scraped every 15 seconds.<br><br>
+        <b>5 tracked KPIs (per project requirements):</b>
+        <div class="metrics">
+          <span class="metric"><span class="mdot"></span>Search relevancy score — avg cross-encoder score per hour</span>
+          <span class="metric"><span class="mdot"></span>Click-through rate — clicks / impressions per query session</span>
+          <span class="metric"><span class="mdot"></span>Query processing time — p50 and p95 in ms</span>
+          <span class="metric"><span class="mdot"></span>Index update latency — PG write → Pinecone confirm delta</span>
+          <span class="metric"><span class="mdot"></span>Cache hit rate — Redis hits / total requests</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="cicd">
+      <div class="panel">
+        <b>GitHub Actions pipeline stages:</b><br>
+        &nbsp;1. <code>lint + test</code> (pytest, ruff)<br>
+        &nbsp;2. <code>docker build</code> (python:3.11-slim base)<br>
+        &nbsp;3. <code>push to ECR</code><br>
+        &nbsp;4. <code>ECS rolling deploy</code> (zero-downtime)<br><br>
+        For lower-traffic or cost-sensitive environments, <b>AWS Lambda + API Gateway</b> replaces ECS as a serverless option with no always-on cost. Toggle via environment config — no code changes needed.
+        <div class="tags">
+          <span class="tag">python:3.11-slim</span><span class="tag">AWS ECR</span>
+          <span class="tag">ECS rolling deploy</span><span class="tag">Lambda fallback option</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Phase 2 teaser -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill" style="background:var(--bg3);color:var(--text3);border:0.5px solid var(--border-mid)">Phase 2</span>
+      <span class="layer-name" style="color:var(--text2)">Multimodal upgrade</span>
+    </div>
+    <p class="layer-desc">Planned extensions once text search is stable and metrics baselines are established.</p>
+    <div class="grid g3">
+      <div class="card" onclick="toggle(this,'clip')">
+        <div class="ct">Image search</div>
+        <div class="cs">CLIP embeddings · image query → vector → Pinecone</div>
+      </div>
+      <div class="card" onclick="toggle(this,'whisper')">
+        <div class="ct">Voice search</div>
+        <div class="cs">Whisper STT → text → existing Phase 1 pipeline</div>
+      </div>
+      <div class="card" onclick="toggle(this,'multilang')">
+        <div class="ct">Multilingual</div>
+        <div class="cs">BLEU score eval · multilingual embedding model swap</div>
+      </div>
+    </div>
+    <div class="expand" id="clip">
+      <div class="panel">
+        Add a second Pinecone namespace per category storing <b>CLIP image embeddings</b> (<code>openai/clip-vit-large-patch14</code>, 768 dims). A user can upload a photo of a shoe and retrieve visually similar products — no text query needed. Product images stored in S3, served via CloudFront.
+      </div>
+    </div>
+    <div class="expand" id="whisper">
+      <div class="panel">
+        Pipe voice input through <b>OpenAI Whisper</b> (STT) to produce a text transcript, then feed that directly into the existing Phase 1 search pipeline — no changes needed to the agent layer or Pinecone index. Minimal integration effort for a high-value UX upgrade.
+      </div>
+    </div>
+    <div class="expand" id="multilang">
+      <div class="panel">
+        Swap the embedding model for a <b>multilingual variant</b> (e.g. <code>multilingual-e5-large</code>) and fine-tune on category-specific terminology. Evaluate translation quality using <b>BLEU score</b> comparing LLM-generated descriptions against Google Translate baseline — per the Capstone 4 methodology.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="cta-row">
+    <a class="cta-btn" href="README.md">README</a>
+    <a class="cta-btn" href="app/agents/search_agents.py">search_agents.py</a>
+    <a class="cta-btn" href="app/services/search.py">search.py</a>
+    <a class="cta-btn" href="app/api/routes.py">routes.py</a>
+    <a class="cta-btn" href="scripts/seed_products.py">seed_products.py</a>
+  </div>
+
+</div>
+
+<script>
+  function toggle(card, id) {
+    const panel = document.getElementById(id);
+    const isOpen = panel.classList.contains('open');
+    document.querySelectorAll('.expand.open').forEach(p => p.classList.remove('open'));
+    document.querySelectorAll('.card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) {
+      panel.classList.add('open');
+      card.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>
