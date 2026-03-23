@@ -29,17 +29,42 @@ def embed_batch(texts: list[str]) -> list[list[float]]:
 
 
 def upsert_product(product: Product) -> None:
-    # TODO: Embed product using product.to_embedding_text() and upsert to Pinecone
-    # Namespace = product.category
-    raise NotImplementedError
+    from app.db.clients import get_pinecone_index
+    index = get_pinecone_index()
+    vector = embed_text(product.to_embedding_text())
+    index.upsert(
+        vectors=[(product.product_id, vector, product.to_pinecone_metadata())],
+        namespace=product.category,
+    )
 
 
 def upsert_products_batch(products: list[Product]) -> dict:
-    # TODO: Batch embed and upsert products, grouped by category namespace
-    # Returns: {"total": int, "upserted": int}
-    raise NotImplementedError
+    from app.db.clients import get_pinecone_index
+    index = get_pinecone_index()
+
+    # Group by category (namespace)
+    by_category: dict[str, list[Product]] = {}
+    for p in products:
+        by_category.setdefault(p.category, []).append(p)
+
+    upserted = 0
+    for category, cat_products in by_category.items():
+        texts = [p.to_embedding_text() for p in cat_products]
+        vectors = embed_batch(texts)
+        records = [
+            (p.product_id, vec, p.to_pinecone_metadata())
+            for p, vec in zip(cat_products, vectors)
+        ]
+        # Upsert in batches of 100
+        for i in range(0, len(records), 100):
+            batch = records[i : i + 100]
+            index.upsert(vectors=batch, namespace=category)
+            upserted += len(batch)
+
+    return {"total": len(products), "upserted": upserted}
 
 
 def delete_product(product_id: str, category: str) -> None:
-    # TODO: Delete product vector from Pinecone by ID and namespace
-    raise NotImplementedError
+    from app.db.clients import get_pinecone_index
+    index = get_pinecone_index()
+    index.delete(ids=[product_id], namespace=category)

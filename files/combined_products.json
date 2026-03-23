@@ -1,0 +1,3222 @@
+[
+  {
+    "productID": "MOB-00001",
+    "name": "realme Narzo 10A",
+    "color": "So White",
+    "brand": "realme",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "realme Narzo 10A smartphone with 4 GB RAM and 64 GB storage in So White color.",
+    "price": 9999,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.5,
+      "original_price": 10999
+    }
+  },
+  {
+    "productID": "MOB-00002",
+    "name": "Motorola E5 Plus",
+    "color": "Black",
+    "brand": "Motorola",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Motorola E5 Plus smartphone with 3 GB RAM and 32 GB storage in Black color.",
+    "price": 11999,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "32 GB",
+      "rating": 4.2,
+      "original_price": 11999
+    }
+  },
+  {
+    "productID": "MOB-00003",
+    "name": "Infinix Hot 10 Play",
+    "color": "Aegean Blue",
+    "brand": "Infinix",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Infinix Hot 10 Play smartphone with 4 GB RAM and 64 GB storage in Aegean Blue color.",
+    "price": 9299,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.3,
+      "original_price": 10999
+    }
+  },
+  {
+    "productID": "MOB-00004",
+    "name": "realme 3",
+    "color": "Radiant Blue",
+    "brand": "realme",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "realme 3 smartphone with 3 GB RAM and 32 GB storage in Radiant Blue color.",
+    "price": 8499,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "32 GB",
+      "rating": 4.5,
+      "original_price": 10999
+    }
+  },
+  {
+    "productID": "MOB-00005",
+    "name": "Xiaomi Mi A3",
+    "color": "Not just Blue",
+    "brand": "Xiaomi",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Xiaomi Mi A3 smartphone with 4 GB RAM and 64 GB storage in Not just Blue color.",
+    "price": 12990,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": null,
+      "original_price": 14989
+    }
+  },
+  {
+    "productID": "MOB-00006",
+    "name": "Motorola G4",
+    "color": "Black",
+    "brand": "Motorola",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Motorola G4 smartphone with 2 GB RAM and 16 GB storage in Black color.",
+    "price": 6399,
+    "metadata": {
+      "ram": "2 GB",
+      "storage": "16 GB",
+      "rating": 3.9,
+      "original_price": 6399
+    }
+  },
+  {
+    "productID": "MOB-00007",
+    "name": "SAMSUNG Galaxy S9 Plus",
+    "color": "Sunrise Gold",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG Galaxy S9 Plus smartphone with 6 GB RAM and 128 GB storage in Sunrise Gold color.",
+    "price": 68900,
+    "metadata": {
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "rating": 4.5,
+      "original_price": 68900
+    }
+  },
+  {
+    "productID": "MOB-00008",
+    "name": "realme U1",
+    "color": "Fiery Gold",
+    "brand": "realme",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "realme U1 smartphone with 3 GB RAM and 64 GB storage in Fiery Gold color.",
+    "price": 11999,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "64 GB",
+      "rating": 4.4,
+      "original_price": 11999
+    }
+  },
+  {
+    "productID": "MOB-00009",
+    "name": "Apple iPhone 12 Pro",
+    "color": "Gold",
+    "brand": "Apple",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Apple iPhone 12 Pro smartphone with 6 GB RAM and 128 GB storage in Gold color.",
+    "price": 109900,
+    "metadata": {
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "rating": 4.6,
+      "original_price": 109900
+    }
+  },
+  {
+    "productID": "MOB-00010",
+    "name": "Apple iPhone 13 Pro Max",
+    "color": "Graphite",
+    "brand": "Apple",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Apple iPhone 13 Pro Max smartphone with 4GB RAM and 128 GB storage in Graphite color.",
+    "price": 129900,
+    "metadata": {
+      "ram": "4GB",
+      "storage": "128 GB",
+      "rating": 4.7,
+      "original_price": 129900
+    }
+  },
+  {
+    "productID": "MOB-00011",
+    "name": "realme C15",
+    "color": "Power Silver",
+    "brand": "realme",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "realme C15 smartphone with 3 GB RAM and N/A storage in Power Silver color.",
+    "price": 9999,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": null,
+      "rating": 4.3,
+      "original_price": 11999
+    }
+  },
+  {
+    "productID": "MOB-00012",
+    "name": "Lenovo K6 Note",
+    "color": "Gold",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Lenovo K6 Note smartphone with 4 GB RAM and 32 GB storage in Gold color.",
+    "price": 7490,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "32 GB",
+      "rating": 4,
+      "original_price": 7490
+    }
+  },
+  {
+    "productID": "MOB-00013",
+    "name": "OPPO F7",
+    "color": "Silver",
+    "brand": "OPPO",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "OPPO F7 smartphone with 4 GB RAM and 64 GB storage in Silver color.",
+    "price": 22990,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.4,
+      "original_price": 22990
+    }
+  },
+  {
+    "productID": "MOB-00014",
+    "name": "Infinix Hot 9",
+    "color": "Quetzal Cyan",
+    "brand": "Infinix",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Infinix Hot 9 smartphone with 4 GB RAM and 64 GB storage in Quetzal Cyan color.",
+    "price": 11999,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.4,
+      "original_price": 11999
+    }
+  },
+  {
+    "productID": "MOB-00015",
+    "name": "Xiaomi Redmi Y2",
+    "color": "Blue",
+    "brand": "Xiaomi",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Xiaomi Redmi Y2 smartphone with 3 GB RAM and 32 GB storage in Blue color.",
+    "price": 9499,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "32 GB",
+      "rating": 4.3,
+      "original_price": 9499
+    }
+  },
+  {
+    "productID": "MOB-00016",
+    "name": "GIONEE Pioneer P2",
+    "color": "Black",
+    "brand": "GIONEE",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "GIONEE Pioneer P2 smartphone with 512 MB RAM and 4 GB storage in Black color.",
+    "price": 2290,
+    "metadata": {
+      "ram": "512 MB",
+      "storage": "4 GB",
+      "rating": 3.6,
+      "original_price": 2290
+    }
+  },
+  {
+    "productID": "MOB-00017",
+    "name": "SAMSUNG Galaxy M32",
+    "color": "Blue",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG Galaxy M32 smartphone with 4 GB RAM and 64 GB storage in Blue color.",
+    "price": 15399,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.2,
+      "original_price": 15499
+    }
+  },
+  {
+    "productID": "MOB-00018",
+    "name": "SAMSUNG Galaxy M31",
+    "color": "Space Black",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG Galaxy M31 smartphone with 8 GB RAM and 128 GB storage in Space Black color.",
+    "price": 19990,
+    "metadata": {
+      "ram": "8 GB",
+      "storage": "128 GB",
+      "rating": 4.3,
+      "original_price": 19990
+    }
+  },
+  {
+    "productID": "MOB-00019",
+    "name": "Apple iPhone XS",
+    "color": "Gold",
+    "brand": "Apple",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Apple iPhone XS smartphone with 4 GB RAM and 64 GB storage in Gold color.",
+    "price": 62999,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.7,
+      "original_price": 89900
+    }
+  },
+  {
+    "productID": "MOB-00020",
+    "name": "Apple iPhone 7",
+    "color": "Silver",
+    "brand": "Apple",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Apple iPhone 7 smartphone with N/A RAM and 256 GB storage in Silver color.",
+    "price": 74400,
+    "metadata": {
+      "ram": null,
+      "storage": "256 GB",
+      "rating": 4.5,
+      "original_price": 74400
+    }
+  },
+  {
+    "productID": "MOB-00021",
+    "name": "vivo V21e",
+    "color": "Sunset Jazz",
+    "brand": "vivo",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "vivo V21e smartphone with 3 GB RAM and 16 GB storage in Sunset Jazz color.",
+    "price": 18990,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "16 GB",
+      "rating": 4.3,
+      "original_price": 18990
+    }
+  },
+  {
+    "productID": "MOB-00022",
+    "name": "GIONEE S96",
+    "color": "Black",
+    "brand": "GIONEE",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "GIONEE S96 smartphone with 64 MB RAM and 128 MB storage in Black color.",
+    "price": 3150,
+    "metadata": {
+      "ram": "64 MB",
+      "storage": "128 MB",
+      "rating": 3.9,
+      "original_price": 3150
+    }
+  },
+  {
+    "productID": "MOB-00023",
+    "name": "SAMSUNG Metro 313",
+    "color": "Black",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG Metro 313 smartphone with 2 MB RAM and 2 MB storage in Black color.",
+    "price": 2399,
+    "metadata": {
+      "ram": "2 MB",
+      "storage": "2 MB",
+      "rating": 4.1,
+      "original_price": 2399
+    }
+  },
+  {
+    "productID": "MOB-00024",
+    "name": "SAMSUNG Galaxy A20",
+    "color": "Black",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG Galaxy A20 smartphone with 3 GB RAM and 32 GB storage in Black color.",
+    "price": 11490,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "32 GB",
+      "rating": 4.3,
+      "original_price": 12900
+    }
+  },
+  {
+    "productID": "MOB-00025",
+    "name": "Lenovo B",
+    "color": "White",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Lenovo B smartphone with 1 GB RAM and 8 GB storage in White color.",
+    "price": 6799,
+    "metadata": {
+      "ram": "1 GB",
+      "storage": "8 GB",
+      "rating": 3.8,
+      "original_price": 6799
+    }
+  },
+  {
+    "productID": "MOB-00026",
+    "name": "POCO C31",
+    "color": "Shadow Grey",
+    "brand": "POCO",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "POCO C31 smartphone with 4 GB RAM and 64 GB storage in Shadow Grey color.",
+    "price": 8999,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.4,
+      "original_price": 11999
+    }
+  },
+  {
+    "productID": "MOB-00027",
+    "name": "SAMSUNG Galaxy A7",
+    "color": "Blue",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG Galaxy A7 smartphone with 6 GB RAM and 128 GB storage in Blue color.",
+    "price": 24600,
+    "metadata": {
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "rating": 4.4,
+      "original_price": 24600
+    }
+  },
+  {
+    "productID": "MOB-00028",
+    "name": "OPPO A83",
+    "color": "Champagne",
+    "brand": "OPPO",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "OPPO A83 smartphone with 2 GB RAM and 16 GB storage in Champagne color.",
+    "price": 11000,
+    "metadata": {
+      "ram": "2 GB",
+      "storage": "16 GB",
+      "rating": 4.2,
+      "original_price": 11000
+    }
+  },
+  {
+    "productID": "MOB-00029",
+    "name": "realme 1",
+    "color": "Diamond Red",
+    "brand": "realme",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "realme 1 smartphone with 4 GB RAM and 64 GB storage in Diamond Red color.",
+    "price": 9490,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "rating": 4.4,
+      "original_price": 9490
+    }
+  },
+  {
+    "productID": "MOB-00030",
+    "name": "Apple iPhone 11 Pro Max",
+    "color": "Silver",
+    "brand": "Apple",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Apple iPhone 11 Pro Max smartphone with 4GB RAM and 64 GB storage in Silver color.",
+    "price": 117100,
+    "metadata": {
+      "ram": "4GB",
+      "storage": "64 GB",
+      "rating": 4.7,
+      "original_price": 117100
+    }
+  },
+  {
+    "productID": "MOB-00031",
+    "name": "Lenovo A6 Note",
+    "color": "Blue",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "Lenovo A6 Note smartphone with 3 GB RAM and 32 GB storage in Blue color.",
+    "price": 9999,
+    "metadata": {
+      "ram": "3 GB",
+      "storage": "32 GB",
+      "rating": 4.2,
+      "original_price": 9999
+    }
+  },
+  {
+    "productID": "MOB-00032",
+    "name": "SAMSUNG SAMSUNG Metro 350 Dual Sim",
+    "color": "Black",
+    "brand": "SAMSUNG",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "SAMSUNG SAMSUNG Metro 350 Dual Sim smartphone with 32 MB RAM and 2 MB storage in Black color.",
+    "price": 2899,
+    "metadata": {
+      "ram": "32 MB",
+      "storage": "2 MB",
+      "rating": 4.1,
+      "original_price": 2899
+    }
+  },
+  {
+    "productID": "MOB-00033",
+    "name": "OPPO F17",
+    "color": "Navy Blue",
+    "brand": "OPPO",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "OPPO F17 smartphone with 6 GB RAM and 128 GB storage in Navy Blue color.",
+    "price": 16990,
+    "metadata": {
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "rating": 4.2,
+      "original_price": 20990
+    }
+  },
+  {
+    "productID": "MOB-00034",
+    "name": "vivo Y75 5G",
+    "color": "Starlight Black",
+    "brand": "vivo",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "vivo Y75 5G smartphone with 8 GB RAM and 128 GB storage in Starlight Black color.",
+    "price": 21990,
+    "metadata": {
+      "ram": "8 GB",
+      "storage": "128 GB",
+      "rating": 4.3,
+      "original_price": 21990
+    }
+  },
+  {
+    "productID": "MOB-00035",
+    "name": "realme Narzo 30A",
+    "color": "Laser Black",
+    "brand": "realme",
+    "category": "Electronics",
+    "subCategory": "Smartphone",
+    "description": "realme Narzo 30A smartphone with 4 GB RAM and N/A storage in Laser Black color.",
+    "price": 10499,
+    "metadata": {
+      "ram": "4 GB",
+      "storage": null,
+      "rating": 4.3,
+      "original_price": 10999
+    }
+  },
+  {
+    "productID": "LAP-00036",
+    "name": "HP Victus 16-E0094NS AMD Ryzen 5 5600H/16GB/512GB SSD/RTX 3050Ti/16.1",
+    "color": "Blue",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP Victus laptop with AMD Ryzen 5 processor, 16GB RAM, 512GB SSD storage, 16.1\" display.",
+    "price": 865.4,
+    "metadata": {
+      "cpu": "AMD Ryzen 5",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "16.1 inch",
+      "gpu": "RTX 3050",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00037",
+    "name": "MSI Creator Pro M16 B13VK-1021ES Intel Core i7-13700H/32GB/1TB SSD/RTX 3000/16",
+    "color": "Black",
+    "brand": "MSI",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "MSI Creator laptop with Intel Core i7 processor, 32GB RAM, 1000GB SSD storage, 16.0\" display.",
+    "price": 2707.44,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "32GB",
+      "storage": "1000GB SSD",
+      "screen_size": "16.0 inch",
+      "gpu": "RTX 3000",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00038",
+    "name": "HP Victus 15-fa1002ns Intel Core i7-13700H/16GB/512GB SSD/RTX 4050/15.6",
+    "color": "Blue",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP Victus laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD storage, 15.6\" display.",
+    "price": 1299.01,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": "RTX 4050",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00039",
+    "name": "Lenovo ThinkBook 14 G4 IAP Intel Core i5-1235U/8GB/256GB SSD/14",
+    "color": "Grey",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Lenovo ThinkBook laptop with Intel Core i5 processor, 8GB RAM, 256GB SSD storage, 14.0\" display.",
+    "price": 959,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00040",
+    "name": "LG Gram 17Z90Q Intel Core i7-1260P/16GB/512GB SSD/RTX 2050/17",
+    "color": "White",
+    "brand": "LG",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "LG Gram laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD storage, 17.0\" display.",
+    "price": 1409.01,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "17.0 inch",
+      "gpu": "RTX 2050",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00041",
+    "name": "LG Gram 14ZB90Q Intel Core i5-1240P/16GB/512GB SSD/14",
+    "color": "Space Grey",
+    "brand": "LG",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "LG Gram laptop with Intel Core i5 processor, 16GB RAM, 512GB SSD storage, 14.0\" display.",
+    "price": 1149,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00042",
+    "name": "Dell Vostro 5320 Intel Evo Core i7-1260P/16GB/512GB SSD/13.3",
+    "color": "Silver",
+    "brand": "Dell",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Dell Vostro laptop with Intel Evo Core i7 processor, 16GB RAM, 512GB SSD storage, 13.3\" display.",
+    "price": 1216,
+    "metadata": {
+      "cpu": "Intel Evo Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "13.3 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00043",
+    "name": "Asus Zenbook 14 UX425EA-HM165T Intel Core i7-1165G7/16GB/512GB SSD/14",
+    "color": "Grey",
+    "brand": "Asus",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Asus ZenBook laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD storage, 14.0\" display.",
+    "price": 950,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00044",
+    "name": "ASUS ROG Strix G16 G614JI-N4007 Intel Core i9-13980HX/32GB/1TB SSD/RTX 4070/16",
+    "color": "Grey",
+    "brand": "Asus",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Asus ROG laptop with Intel Core i9 processor, 32GB RAM, 1000GB SSD storage, 16.0\" display.",
+    "price": 2459.01,
+    "metadata": {
+      "cpu": "Intel Core i9",
+      "ram": "32GB",
+      "storage": "1000GB SSD",
+      "screen_size": "16.0 inch",
+      "gpu": "RTX 4070",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00045",
+    "name": "Primux IoxBook 15R3A AMD Ryzen 3-3200U/8GB/256GB SSD/15.6",
+    "color": "Space Grey",
+    "brand": "Primux",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Primux Ioxbook laptop with AMD Ryzen 3 processor, 8GB RAM, 256GB SSD storage, 15.6\" display.",
+    "price": 599.41,
+    "metadata": {
+      "cpu": "AMD Ryzen 3",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00046",
+    "name": "Lenovo IdeaPad 1 15ADA7 AMD Ryzen 5 3500U/8GB/512GB SSD/15.6",
+    "color": "Black",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Lenovo IdeaPad laptop with AMD Ryzen 5 processor, 8GB RAM, 512GB SSD storage, 15.6\" display.",
+    "price": 569.04,
+    "metadata": {
+      "cpu": "AMD Ryzen 5",
+      "ram": "8GB",
+      "storage": "512GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00047",
+    "name": "MSI GL65 Leopard 10SFR-483XES Intel Core i7-10750H/16GB/512GB SSD/RTX 2070/15.6",
+    "color": "Black",
+    "brand": "MSI",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "MSI Leopard laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD storage, 15.6\" display.",
+    "price": 861.99,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": "RTX 2070",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00048",
+    "name": "ASUS Zenbook 14 OLED UM3402YA-KM063W AMD Ryzen 5 5625U/16GB/512GB SSD/14",
+    "color": "Silver",
+    "brand": "Asus",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Asus ZenBook laptop with AMD Ryzen 5 processor, 16GB RAM, 512GB SSD storage, 14.0\" display.",
+    "price": 856,
+    "metadata": {
+      "cpu": "AMD Ryzen 5",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00049",
+    "name": "HP OMEN 16-c0013ns AMD Ryzen 7 5800H/16GB/512GB SSD/RTX 3050Ti/16.1",
+    "color": "Silver",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP Omen laptop with AMD Ryzen 7 processor, 16GB RAM, 512GB SSD storage, 16.1\" display.",
+    "price": 829.33,
+    "metadata": {
+      "cpu": "AMD Ryzen 7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "16.1 inch",
+      "gpu": "RTX 3050",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00050",
+    "name": "Lenovo V15 G2 Intel Core i3-1115G4/8GB/256GB SSD/15.6",
+    "color": "Black",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Lenovo V15 laptop with Intel Core i3 processor, 8GB RAM, 256GB SSD storage, 15.6\" display.",
+    "price": 443.01,
+    "metadata": {
+      "cpu": "Intel Core i3",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00051",
+    "name": "MSI Raider GE68HX 13VF-045XES Intel Core i9-13950HX/32GB/1TB SSD/RTX 4060/16",
+    "color": "Black",
+    "brand": "MSI",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "MSI Raider laptop with Intel Core i9 processor, 32GB RAM, 1000GB SSD storage, 16.0\" display.",
+    "price": 2599,
+    "metadata": {
+      "cpu": "Intel Core i9",
+      "ram": "32GB",
+      "storage": "1000GB SSD",
+      "screen_size": "16.0 inch",
+      "gpu": "RTX 4060",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00052",
+    "name": "HP ZBook Firefly 14 G9 Intel Core i7-1265U/16GB/512GB SSD/Quadro T500/14",
+    "color": "Silver",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP Zbook laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD storage, 14.0\" display.",
+    "price": 1800.03,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": "T 500",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00053",
+    "name": "Lenovo Legion 5 15ACH6-276 Ryzen 7 5800H/16GB/1TB SSD/RTX3060/15.6 (PT)",
+    "color": "Black",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Lenovo Legion laptop with AMD Ryzen 7 processor, 16GB RAM, 1000GB SSD storage, 15.6\" display.",
+    "price": 1553.68,
+    "metadata": {
+      "cpu": "AMD Ryzen 7",
+      "ram": "16GB",
+      "storage": "1000GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": "RTX 3060",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00054",
+    "name": "HP 15S-EQ2106NS AMD Ryzen 7 5700U/12GB/512GB SSD/15.6",
+    "color": "Blue",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP 15S laptop with AMD Ryzen 7 processor, 12GB RAM, 512GB SSD storage, 15.6\" display.",
+    "price": 673.37,
+    "metadata": {
+      "cpu": "AMD Ryzen 7",
+      "ram": "12GB",
+      "storage": "512GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00055",
+    "name": "Medion Akoya S15449-MD61991 Intel Core i5-1135G7/8GB/512GB SSD/15.6",
+    "color": "Black",
+    "brand": "Medion",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Medion Akoya laptop with Intel Core i5 processor, 8GB RAM, 512GB SSD storage, 15.6\" display.",
+    "price": 670.85,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "512GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00056",
+    "name": "Microsoft Surface Laptop 5 Negro Intel Evo Core i5-1245U/8GB/512GB SSD/13.5 Táctil",
+    "color": "Silver",
+    "brand": "Microsoft",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Microsoft Surface Laptop laptop with Intel Evo Core i5 processor, 8GB RAM, 512GB SSD storage, 13.5\" display.",
+    "price": 1576.27,
+    "metadata": {
+      "cpu": "Intel Evo Core i5",
+      "ram": "8GB",
+      "storage": "512GB SSD",
+      "screen_size": "13.5 inch",
+      "gpu": null,
+      "touch": "Yes"
+    }
+  },
+  {
+    "productID": "LAP-00057",
+    "name": "Asus ROG Zephyrus M GU603HR-K8009T Intel Core i7-11800H/32GB/1TB SSD/RTX 3070/16",
+    "color": "Silver",
+    "brand": "Asus",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Asus ROG laptop with Intel Core i7 processor, 32GB RAM, 1000GB SSD storage, 16.0\" display.",
+    "price": 2599,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "32GB",
+      "storage": "1000GB SSD",
+      "screen_size": "16.0 inch",
+      "gpu": "RTX 3070",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00058",
+    "name": "HP Victus 15-fa0026ns Intel Core i5-12450H/16GB/512GB SSD/GTX 1650/15.6",
+    "color": "Blue",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP Victus laptop with Intel Core i5 processor, 16GB RAM, 512GB SSD storage, 15.6\" display.",
+    "price": 999,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": "GTX 1650",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00059",
+    "name": "HP EliteBook x360 1030 G8 Intel Core i5-1135G7/16GB/512GB SSD/13.3 Táctil",
+    "color": "Silver",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP EliteBook laptop with Intel Core i5 processor, 16GB RAM, 512GB SSD storage, 13.3\" display.",
+    "price": 1999,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "13.3 inch",
+      "gpu": null,
+      "touch": "Yes"
+    }
+  },
+  {
+    "productID": "LAP-00060",
+    "name": "HP OMEN 16-b0046ns Intel Core i7-11800H/32GB/1TB SSD/RTX 3060/16.1",
+    "color": "Blue",
+    "brand": "HP",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "HP Omen laptop with Intel Core i7 processor, 32GB RAM, 1000GB SSD storage, 16.1\" display.",
+    "price": 1198.64,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "32GB",
+      "storage": "1000GB SSD",
+      "screen_size": "16.1 inch",
+      "gpu": "RTX 3060",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00061",
+    "name": "Dell Latitude 3520 Intel Core i5-1135G7/8GB/256GB SSD/15.6'' (PT)",
+    "color": "Black",
+    "brand": "Dell",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Dell Latitude laptop with Intel Core i5 processor, 8GB RAM, 256GB SSD storage, 15.6\" display.",
+    "price": 915.78,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00062",
+    "name": "Asus TUF Gaming A17 FA706QM-HX001 AMD Ryzen 7 5800H/16GB/1TB SSD/RTX 3060/17.3",
+    "color": "Black",
+    "brand": "Asus",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Asus TUF laptop with AMD Ryzen 7 processor, 16GB RAM, 1000GB SSD storage, 17.3\" display.",
+    "price": 1270.23,
+    "metadata": {
+      "cpu": "AMD Ryzen 7",
+      "ram": "16GB",
+      "storage": "1000GB SSD",
+      "screen_size": "17.3 inch",
+      "gpu": "RTX 3060",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00063",
+    "name": "ASUS ROG Strix SCAR 18 G834JY-93B49PB1 Intel Core i9-13980HX/64GB/2TB SSD/RTX 4090/16'' (PT)",
+    "color": "Silver",
+    "brand": "Asus",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Asus ROG laptop with Intel Core i9 processor, 64GB RAM, 2000GB SSD storage, 16.0\" display.",
+    "price": 5758.14,
+    "metadata": {
+      "cpu": "Intel Core i9",
+      "ram": "64GB",
+      "storage": "2000GB SSD",
+      "screen_size": "16.0 inch",
+      "gpu": "RTX 4090",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00064",
+    "name": "Lenovo IdeaPad Flex 5 14ALC05 AMD Ryzen 7 5700U/16GB/512GB SSD/14",
+    "color": "Grey",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Lenovo IdeaPad laptop with AMD Ryzen 7 processor, 16GB RAM, 512GB SSD storage, 14.0\" display.",
+    "price": 1058,
+    "metadata": {
+      "cpu": "AMD Ryzen 7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00065",
+    "name": "Acer TravelMate P2 TMP214-52-P5SM Intel Pentium Gold 6405U/8GB/256GB SSD/14",
+    "color": "Black",
+    "brand": "Acer",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Acer TravelMate laptop with Intel Pentium processor, 8GB RAM, 256GB SSD storage, 14.0\" display.",
+    "price": 474.99,
+    "metadata": {
+      "cpu": "Intel Pentium",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00066",
+    "name": "Alurin Flex Advance AMD Ryzen 5 5500U/8GB/500GB SSD/15.6",
+    "color": "Space Grey",
+    "brand": "Alurin",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Alurin Flex Advance laptop with AMD Ryzen 5 processor, 8GB RAM, 500GB SSD storage, 15.6\" display.",
+    "price": 459,
+    "metadata": {
+      "cpu": "AMD Ryzen 5",
+      "ram": "8GB",
+      "storage": "500GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00067",
+    "name": "MSI Modern 14 B11SB-009XES Intel Core i7-1165G7/16GB/512GB SSD/MX450/14",
+    "color": "Black",
+    "brand": "MSI",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "MSI Modern laptop with Intel Core i7 processor, 16GB RAM, 512GB SSD storage, 14.0\" display.",
+    "price": 676.79,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": "MX 450",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00068",
+    "name": "MSI Bravo 15 B5ED-015XES AMD Ryzen 7 5800H/16GB/1TB SSD/RX6500M/15.6",
+    "color": "Black",
+    "brand": "MSI",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "MSI Bravo laptop with AMD Ryzen 7 processor, 16GB RAM, 1000GB SSD storage, 15.6\" display.",
+    "price": 1149,
+    "metadata": {
+      "cpu": "AMD Ryzen 7",
+      "ram": "16GB",
+      "storage": "1000GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": "RX 6500M",
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00069",
+    "name": "Vant Edge 3 Intel Core i7-1255U/16GB/1TB SSD/14",
+    "color": "Silver",
+    "brand": "Vant",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Vant Edge laptop with Intel Core i7 processor, 16GB RAM, 1000GB SSD storage, 14.0\" display.",
+    "price": 1162,
+    "metadata": {
+      "cpu": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "1000GB SSD",
+      "screen_size": "14.0 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "LAP-00070",
+    "name": "Lenovo ThinkBook 15 G2 ITL Intel Core i5-1135G7/8GB/256GB SSD/15.6 Gris",
+    "color": "Black",
+    "brand": "Lenovo",
+    "category": "Electronics",
+    "subCategory": "Laptop",
+    "description": "Lenovo ThinkBook laptop with Intel Core i5 processor, 8GB RAM, 256GB SSD storage, 15.6\" display.",
+    "price": 970.48,
+    "metadata": {
+      "cpu": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "screen_size": "15.6 inch",
+      "gpu": null,
+      "touch": "No"
+    }
+  },
+  {
+    "productID": "CLO-00071",
+    "name": "Indian Terrain Men Navy Blue & White Chiseled Slim Fit Checked Casual Shirt",
+    "color": "Blue",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "Shirt",
+    "description": "Navy Blue and White checked casual shirt, has a slim collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+    "price": 839,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00072",
+    "name": "Indian Terrain Boys Navy Blue Regular Fit Solid Trousers",
+    "color": "Blue",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "Bottomwear",
+    "description": "Navy Blue solid mid-rise trousers with stitching design detail, button closure, and 5 pockets",
+    "price": 764,
+    "metadata": {
+      "gender": "Boys"
+    }
+  },
+  {
+    "productID": "CLO-00073",
+    "name": "Flying Machine Boys Black Side Stripe with Print Joggers",
+    "color": "Black",
+    "brand": "Flying Machine",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Black knitted joggers with side stripe and print details, has an elasticated waistband and drawstring closure, three pockets and cuffed hem",
+    "price": 519,
+    "metadata": {
+      "gender": "Boys"
+    }
+  },
+  {
+    "productID": "CLO-00074",
+    "name": "Lavie Blue Textured Shoulder Bag",
+    "color": "Blue",
+    "brand": "Lavie",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Blue textured shoulder bag, has a zip closure1 main compartment, 2 external and 4 inner pocketsTablet sleeve: NoTwo Handles with a detachable sling strap",
+    "price": 2384,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00075",
+    "name": "Chkokko Women Mustard Yellow Solid Hooded Sweatshirt",
+    "color": "Yellow",
+    "brand": "Chkokko",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Mustard yellow solid sweatshirt, has an attached hood, long sleeves, one pocket",
+    "price": 547,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00076",
+    "name": "Unravel India Blue Ceramic Cylindrical Table-Top Planter",
+    "color": "Blue",
+    "brand": "Unravel India",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Set Contents: 1 planter pot Colour: Blue Pattern: Textured Shape: CylindricalType: Table planter Material: Ceramic",
+    "price": 629,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00077",
+    "name": "Pepe Jeans Boys Orange & Black Typography Printed Cotton T-shirt",
+    "color": "Black",
+    "brand": "Pepe Jeans",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Orange and black Tshirt for boys   Typography printed   Regular length   Round neck   Long,  regular sleeves   Knitted cotton fabric",
+    "price": 449,
+    "metadata": {
+      "gender": "Boys"
+    }
+  },
+  {
+    "productID": "CLO-00078",
+    "name": "Belle Fille Women Blue & Red Printed Layered Wrap Dress",
+    "color": "Blue",
+    "brand": "Belle Fille",
+    "category": "Clothes",
+    "subCategory": "Dress",
+    "description": "Blue and Red printed layered woven wrap dress, has a V-neck, three-quarter sleeves, concealed zip closure and button closure on the back, and flared hemComes with a belt",
+    "price": 759,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00079",
+    "name": "Vero Moda Blue Sequinned Top",
+    "color": "Blue",
+    "brand": "Vero Moda",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Blue woven sequinned top, has a round neck, short sleeves, a short zip closure on the back, a curved hemline, and has an attached inner lining",
+    "price": 873,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00080",
+    "name": "W Women Navy Blue Yoke Design Straight Kurta",
+    "color": "Blue",
+    "brand": "W",
+    "category": "Clothes",
+    "subCategory": "Kurta",
+    "description": "Navy Blue yoke design straight kurta, has a round neck, three-quarter sleeves, straight hem, side slits, button closure",
+    "price": 679,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00081",
+    "name": "Campus Sutra Men Blue & Black Standard Regular Fit Checked Casual Shirt",
+    "color": "Blue",
+    "brand": "Campus Sutra",
+    "category": "Clothes",
+    "subCategory": "Shirt",
+    "description": "Blue and black checked casual shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+    "price": 449,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00082",
+    "name": "GAP Girls Logo Long Sleeves T-shirt",
+    "color": "Unknown",
+    "brand": "GAP",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Soft jersey knitLong sleevesCrewneckGlitter logo graphic at chestAllover print",
+    "price": 499,
+    "metadata": {
+      "gender": "Girls"
+    }
+  },
+  {
+    "productID": "CLO-00083",
+    "name": "Indian Terrain Men Red Printed Sweatshirt",
+    "color": "Red",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Red printed sweatshirt, has a round neck, long sleeves, straight hem and 2 pockets",
+    "price": 719,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00084",
+    "name": "Roadster Women Burgundy Solid Slip-On Sneakers",
+    "color": "Burgundy",
+    "brand": "Roadster",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of pointed toe burgundy solid slip-on sneakers, has regular styling, slip-on detailSynthetic upperCushioned footbedTextured and patterned outsoleWarranty: 1 monthWarranty provided by brand/manufacturer",
+    "price": 1999,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00085",
+    "name": "Goldea Edp 90Ml",
+    "color": "Gold",
+    "brand": "Bvlgari",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Inspired by gold and light, Bvlgari presents this 'Goldea' Edt, which has begins with the top notes of crystal musk, orange blossom, raspberry, and bergamot. Ita heart notes include golden musk, ylang-ylang, and jasmine with base notes of velvety musk, amber, patchouli, and Egyptian papyrus. The name of this perfume means ' Gold Goddess' and it comes in a pack of 90ml.",
+    "price": 10950,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00086",
+    "name": "Titan Workwear Men White Analogue watch NL1802SM01",
+    "color": "White",
+    "brand": "Titan",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Display: AnalogueMovement: QuartzPower source: BatteryDial style: Solid round metal dialFeatures: Reset TimeStrap style: Silver-Toned bracelet style, metal strap with a foldover closureWater resistance: 50 mWarranty: 2 yearsWarranty provided by brand/manufacturerComes in a Titan case",
+    "price": 2476,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00087",
+    "name": "Saadgi Women Coral Pink & White Embroidered Handloom Sheer Straight Kurta",
+    "color": "Red",
+    "brand": "Saadgi",
+    "category": "Clothes",
+    "subCategory": "Kurta",
+    "description": "Coral pink and white chikankari embroidered handloom sheer straight kurta, has a notched round neck, three-quarter sleeves, straight hem, side slits",
+    "price": 1350,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00088",
+    "name": "United Colors of Benetton Boys Khaki Solid Regular Fit Shorts",
+    "color": "Khaki",
+    "brand": "United Colors of Benetton",
+    "category": "Clothes",
+    "subCategory": "Shorts",
+    "description": "Khaki solid mid-rise shorts, has 2 pockets, and drawstring closure, contrast elasticated waistband",
+    "price": 839,
+    "metadata": {
+      "gender": "Boys"
+    }
+  },
+  {
+    "productID": "CLO-00089",
+    "name": "Geox Women Black Solid Leather Pumps",
+    "color": "Black",
+    "brand": "Geox",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of black pointed toe pumps, has regular styling, backstrap detailLeather upperCushioned footbedTextured and patterned outsole, has a slim heelWarranty: 6 monthsWarranty provided by brand/manufacturer",
+    "price": 3999,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00090",
+    "name": "PARFAIT Plus Size Black Solid Underwired Non Padded Everyday Bra P5412",
+    "color": "Red",
+    "brand": "PARFAIT",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Black solid medium-coverage everyday braNon padded and underwired cut and sew cupsRegular straps and back closureBack style: RegularFeature: Side Bone",
+    "price": 1679,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00091",
+    "name": "Indian Terrain Boys Maroon Regular Fit Solid Casual Shirt",
+    "color": "Maroon",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "Shirt",
+    "description": "Maroon solid casual shirt, has a spread collar, short sleeves, button placket, and curved hem",
+    "price": 404,
+    "metadata": {
+      "gender": "Boys"
+    }
+  },
+  {
+    "productID": "CLO-00092",
+    "name": "Titan Women White Genuine Leather Analogue Watch 2570SL02",
+    "color": "White",
+    "brand": "Titan",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Display: AnalogueMovement: QuartzPower source: BatteryDial style: Solid round stainless steel dialFeatures: Reset Time, Date ApertureStrap style: Brown regular, leather strap with a tang closureWater resistance: 50 mWarranty: 2 yearsWarranty provided by brand/manufacturerComes in a Titan case",
+    "price": 2956,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00093",
+    "name": "Bodycare Women Pack of 2 Assorted Lightly Padded T-shirt Bras E6552SWI",
+    "color": "Unknown",
+    "brand": "Bodycare",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Pack of 2 solid half-coverage assorted T-shirt brasLightly padded and non-wired seamless cupsRegular straps and back closureBack style: RegularFeature: All day comfortDisclaimer: The final product delivered might vary in colour and prints from the display here",
+    "price": 820,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00094",
+    "name": "Lino Perros Women Black Solid Three Fold Wallet",
+    "color": "Black",
+    "brand": "Lino Perros",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Black solid three fold wallet1 main compartment, has a non detachable flap4 card holders, 1 slip pocket, has a zip coin pocket2 ID card holders",
+    "price": 694,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00095",
+    "name": "Monrow Women Black Solid Heels",
+    "color": "Black",
+    "brand": "Monrow",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of black open toe heels, has regular styling, backstrap detailSynthetic upperCushioned footbedTextured and patterned outsole, has a block heelWarranty: 6 monthsWarranty provided by brand/manufacturer",
+    "price": 1299,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00096",
+    "name": "Sonari Pack of 2 Full-Coverage Bras afreen",
+    "color": "Unknown",
+    "brand": "Sonari",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Pack of two bras in purple and white, a bow detail on the front centre, each has adjustable shoulder straps, elasticated detail under the bust, non-padded and non-wired cups, rows of hook-and-eye closure Owing to intimate nature of this product it is eligible for self-ship return only (no pick-up facility)",
+    "price": 750,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00097",
+    "name": "E2O Mustard Yellow Solid Shoulder Bag",
+    "color": "Yellow",
+    "brand": "E2O",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Mustard yellow solid shoulder bag, has a zip closure2 main compartments, 3 inner pocketsTablet sleeve: NoOne Handle and one non-detachable sling strapWarranty: 6 monthsWarranty provided by brand/manufacturer",
+    "price": 1038,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00098",
+    "name": "Levis Men Blue 511 Slim Fit Mid-Rise Clean Look Stretchable Jeans",
+    "color": "Blue",
+    "brand": "Levis",
+    "category": "Clothes",
+    "subCategory": "Bottomwear",
+    "description": "Blue dark wash 5-pocket mid-rise jeans, clean look, no fade, has a button and zip closure, and waistband with belt loops",
+    "price": 2039,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00099",
+    "name": "Soie Women Red Printed Lounge T-shirts",
+    "color": "Red",
+    "brand": "Soie",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Red printed lounge t-shirts, has a round neck, short sleeves.",
+    "price": 616,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00100",
+    "name": "SEJ by Nisha Gupta Set of 6 Yellow & Blue Printed Table Placemats",
+    "color": "Blue",
+    "brand": "SEJ by Nisha Gupta",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Set content: 6 table mats Shape: Rectangle Colour: Yellow and bluePattern: Printed Suitable For: 6 seater table Material: Cotton",
+    "price": 899,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00101",
+    "name": "WROGN Men Black Regular Fit Solid Chinos",
+    "color": "Black",
+    "brand": "WROGN",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Black solid mid-rise trousers, button closure, and 4 pockets",
+    "price": 1429,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00102",
+    "name": "Indian Terrain Men Pink & Blue Striped Polo T-shirt",
+    "color": "Blue",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Pink and blue striped T-shirt, has a polo collar, and short sleeves",
+    "price": 599,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00103",
+    "name": "Blisscovered Gold-Toned & Navy Blue Artistic Shaped Tasselled Pendant With Chain",
+    "color": "Blue",
+    "brand": "Blisscovered",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Gold-toned & navy blue artistic shaped tasselled pendant with chain, has artificial stones, secured with a lobster closure",
+    "price": 239,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00104",
+    "name": "Vishudh Women Blue Solid Straight Kurta",
+    "color": "Blue",
+    "brand": "Vishudh",
+    "category": "Clothes",
+    "subCategory": "Kurta",
+    "description": "Blue solid straight kurta, has a mandarin collar, three-quarter sleeves, straight hem, multiple slits",
+    "price": 1299,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00105",
+    "name": "Vishudh Women Pink & Red Floral Print Maxi Dress",
+    "color": "Red",
+    "brand": "Vishudh",
+    "category": "Clothes",
+    "subCategory": "Dress",
+    "description": "Pink and red printed woven maxi dress, has a round neck, short sleeves, concealed zip closure,, flared hem",
+    "price": 1999,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00106",
+    "name": "GIORDANO Red Solid Shoulder Bag",
+    "color": "Red",
+    "brand": "GIORDANO",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Red solid shoulder bag, has a zip closure1 main compartment, 2 external and Multiple inner pocketsTablet sleeve: NoTwo Handles with a detachable sling strapWarranty: 1 yearWarranty provided by brand/manufacturer",
+    "price": 1501,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00107",
+    "name": "Calvin Klein Jeans Men Navy Blue & White Slim Fit Striped Casual Shirt",
+    "color": "Blue",
+    "brand": "Calvin Klein Jeans",
+    "category": "Clothes",
+    "subCategory": "Shirt",
+    "description": "Navy Blue and White striped casual shirt, has a cutaway collar, long sleeves, button placket, and curved hem",
+    "price": 5999,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00108",
+    "name": "Lavie Women Gold-Toned Textured Wedges",
+    "color": "Red",
+    "brand": "Lavie",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of gold-toned open toe wedges, has regular styling, backstrap with buckle detailSynthetic upperCushioned footbedTextured and patterned outsole, has a wedge heelWarranty: 1 monthWarranty provided by brand/manufacturer",
+    "price": 1189,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00109",
+    "name": "Tistabene Green & Gold-Plated Contemporary Jhumkas",
+    "color": "Green",
+    "brand": "Tistabene",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Green and gold-plated contemporary earrings, and has artificial stonesSecured with a post and back closure",
+    "price": 2540,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00110",
+    "name": "Divine Casa Green & Teal Blue Geometric Mild Winter 110 GSM Single Bed Comforter",
+    "color": "Blue",
+    "brand": "Divine Casa",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Set content: Single bed comforterUsage: Mild WinterGSM: 110Colour: Green, teal blue and orange Pattern: Geometric Comforter",
+    "price": 961,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00111",
+    "name": "Respiro Men Tan Brown Boat Shoes",
+    "color": "Brown",
+    "brand": "Respiro",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of square toe tan brown boat shoes, has regular styling, slip-on detailSynthetic Leather upperCushioned footbedTextured and patterned outsoleWarranty: 1 monthWarranty provided by brand/manufacturer",
+    "price": 869,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00112",
+    "name": "Miss Chase Women Blue Skinny Fit High-Rise Clean Look Stretchable Jeans",
+    "color": "Blue",
+    "brand": "Miss Chase",
+    "category": "Clothes",
+    "subCategory": "Bottomwear",
+    "description": "Blue light wash 5-pocket high-rise jeans, clean look, no fade, has a button fly closure, and waistband with belt loops",
+    "price": 1999,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00113",
+    "name": "Indian Terrain Boys Orange Regular Fit Solid Casual Shirt",
+    "color": "Orange",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "Shirt",
+    "description": "Orange solid casual shirt, has a spread collar, short sleeves, button placket, and curved hem",
+    "price": 404,
+    "metadata": {
+      "gender": "Boys"
+    }
+  },
+  {
+    "productID": "CLO-00114",
+    "name": "ID Men Black Leather Formal Derbys",
+    "color": "Black",
+    "brand": "ID",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of black round-toed formal derbys, has central lace-upsLeather upperCushioned footbedTextured PU outsole, has a stacked heelWarranty: 3 months against manufacturing defect onlyWarranty provided by the brand owner / manufacturer",
+    "price": 1627,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00115",
+    "name": "GNIST Women Beige Solid Suede Open Toe Flats",
+    "color": "Beige",
+    "brand": "GNIST",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of beige open-toed flats, has mid-top styling, ankle loop and bow detailsSuede upperCushioned footbedTextured and patterned outsole",
+    "price": 699,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00116",
+    "name": "Organic Harvest Unisex Sulphate Free Skin Lightening Face Wash 50g",
+    "color": "Unknown",
+    "brand": "Organic Harvest",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "What It Is?:Organic Harvest Sulphate Free Skin Lightening Face Wash 50gWhat It Does?:Organic Harvest Skin Lightening Face Wash is enriched with naturally driven surfactant that cleanses your skin and provides a lightened skin tone. The White Mulberry extract helps in skin whitening, brightening, shining and lightening. The NATURE certified natural plant derived actives used in this face wash have Natural Moisturizing Factors for longer moisturization.Features:Makes skin lighter and keeps it hydratedLightens the age spotsFades blemishes and dark spotsLeaves your skin feeling freshFree of Sulphate, Parabens, Mineral oil, Sulphate, Paba and Animal ingredientsSuitable for acne prone skinIngredients:Aqua, Pure Ribose, Scrubbing beads and Polyquaternium-79 in surfactant base.How To Use?:Take a small amount of the product in your palm and apply thoroughly to wet face.Work up lather.Rinse thoroughly.About the Brand: Organic Harvest is the first Indian homegrown brand which has an entire range of organic skin care, body care and hair care products that are free from any harsh chemicals, Parabens, Phthalates, mineral oil, PABA, petrolatum, paraffin or animal ingredients. The brand is an incredible concept that reflects healthy lifestyle since the products are derived from plants that have been grown without chemical fertilizers, herbicides and pesticides, making them skin friendly.",
+    "price": 90,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00117",
+    "name": "Ahalyaa Women Brown & Navy Blue Printed Straight Kurta",
+    "color": "Blue",
+    "brand": "Ahalyaa",
+    "category": "Clothes",
+    "subCategory": "Kurta",
+    "description": "Brown and Navy Blue printed straight kurta, has a boat neck, three-quarter sleeves, straight hem, and side slits",
+    "price": 777,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00118",
+    "name": "SEJ by Nisha Gupta Pink & Green Printed Table Placemat",
+    "color": "Green",
+    "brand": "SEJ by Nisha Gupta",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Set content: 1 table matShape: RectangleColour: Pink and greenPattern: PrintedSuitable For: 1 seater tableMaterial: Cotton",
+    "price": 399,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00119",
+    "name": "Puma Men Charcoal Grey Pebble II IDP Sports Sandals",
+    "color": "Grey",
+    "brand": "Puma",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of charcoal grey solid sports sandals, has Velcro closureCushioned  footbedTextured and patterned outsoleWarranty: 3 monthsWarranty provided by brand/ manufacturer",
+    "price": 1299,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00120",
+    "name": "E2O Beige Embellished Handheld Bag",
+    "color": "Beige",
+    "brand": "E2O",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Beige embellished handheld bag, has a zip closure1 main compartment, 1 external and 4 inner pocketsTablet sleeve: NoTwo Handles with a detachable sling strapWarranty: 6 monthsWarranty provided by brand/manufacturer",
+    "price": 2069,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00121",
+    "name": "KazarMax Men Navy Blue & White Patterned Slip-On Walking Sneakers",
+    "color": "Blue",
+    "brand": "KazarMax",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "A pair of round-toe navy blue & white patterned slip-on walking sneakers, has regular styling, slip-on detailMesh upperCushioned footbedTextured and patterned outsoleWarranty: 1 monthWarranty provided by brand/manufacturer",
+    "price": 1149,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00122",
+    "name": "PARFAIT Plus Size Purple  Pink Lace Underwired Lightly Padded T-shirt Bra P5581",
+    "color": "Red",
+    "brand": "PARFAIT",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Purple and pink lace medium-coverage T-shirt braLightly Padded and Underwired seamless cupsRegular straps and back closureBack style: RegularFeature: All Day Comfort",
+    "price": 1189,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00123",
+    "name": "ADIVA Girls Blue Fit and Flare Dress",
+    "color": "Blue",
+    "brand": "ADIVA",
+    "category": "Clothes",
+    "subCategory": "Dress",
+    "description": "Blue solid woven fit and flare %S, has  shoulder straps, sleeveless, an attached lining, and flared hem",
+    "price": 749,
+    "metadata": {
+      "gender": "Girls"
+    }
+  },
+  {
+    "productID": "CLO-00124",
+    "name": "AURELIA Women Black & Golden Striped Straight Kurta",
+    "color": "Black",
+    "brand": "AURELIA",
+    "category": "Clothes",
+    "subCategory": "Kurta",
+    "description": "Black and Golden striped straight kurta with sequins and threadwork detail, has a mandarin collar, three-quarter sleeves, straight hem, and side slits",
+    "price": 519,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00125",
+    "name": "Tommy Hilfiger Men Pack of 3 Trunks Solid A9AB4107",
+    "color": "Unknown",
+    "brand": "Tommy Hilfiger",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Pack of 3 trunks:White solid trunks, each has an elasticated waistband, a double-layered contoured front pouch",
+    "price": 1169,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00126",
+    "name": "Tistabene Gold-Plated & Off-White Contemporary Jhumkas",
+    "color": "White",
+    "brand": "Tistabene",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Gold-plated and Off-white Contemporary Earrings, has artificial stonesSecured with a post and back closure",
+    "price": 6349,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00127",
+    "name": "Voylla Brass Plated Gold-Toned & Beige Handcrafted Crescent Shaped Chandbalis",
+    "color": "Beige",
+    "brand": "Voylla",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Gold-Toned and Beige Crescent Shaped Earrings, brass-plated, and has artificial stones Secured with a post and back",
+    "price": 1311,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00128",
+    "name": "SEJ by Nisha Gupta Set of 4 Turquoise Blue & Pink Printed Table Placemats",
+    "color": "Blue",
+    "brand": "SEJ by Nisha Gupta",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Set content: 4 table mats Shape: Rectangle Colour: Turquoise-blue and pink Pattern: Printed Suitable For: 4 seater table Material: Cotton",
+    "price": 799,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00129",
+    "name": "Shaily White & Green Pure Georgette Printed Saree",
+    "color": "Green",
+    "brand": "Shaily",
+    "category": "Clothes",
+    "subCategory": "Saree",
+    "description": "Design Detail:White and Green printed saree and has a solid borderComes with attached Blouse PieceThe model is wearing a blouse from our stylists collection, see the image for a mock-up of what the actual blouse would look likeFabric:Chiffon is a lightweight plain-woven fabric with mesh like weave that gives it transparent appearance.",
+    "price": 835,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00130",
+    "name": "PARFAIT Plus Size Pink  Grey Printed Underwired Lightly Padded Balconette Bra 6901",
+    "color": "Red",
+    "brand": "PARFAIT",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Pink and grey printed full-coverage Balconette braLightly Padded and Underwired cut and sew cupsRegular straps and back closureBack style: RegularFeature: All Day Comfort",
+    "price": 1609,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00131",
+    "name": "SEJ by Nisha Gupta Blue & Green Printed Wooden Open Dry Bin",
+    "color": "Blue",
+    "brand": "SEJ by Nisha Gupta",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Set content: 1 open dry binColour: Blue and greenPattern: Floral printShape: Rectangular",
+    "price": 999,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "CLO-00132",
+    "name": "Indian Terrain Men Navy Blue & White Chiseled Slim Fit Checked Casual Shirt",
+    "color": "Blue",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "Shirt",
+    "description": "Navy Blue and White checked casual shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+    "price": 989,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00133",
+    "name": "Indian Terrain Men Brown Self Design Polo Collar T-shirt",
+    "color": "Brown",
+    "brand": "Indian Terrain",
+    "category": "Clothes",
+    "subCategory": "T-Shirt",
+    "description": "Brown self-design T-shirt, has a polo collar, and short sleeves",
+    "price": 674,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00134",
+    "name": "Lacoste Men L'Homme Eau De Toilette 50 ml",
+    "color": "Unknown",
+    "brand": "Lacoste",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "What it is?LHOMME LACOSTE, the fragrance for audacious and tenacious men, who lead the game with style & elegance. A spicy and wooden fragrance, which captures the brand heritage: being free from all the conventions.A refined and masculine bottle which is an echo to the brand icons.Notes:Top Notes: CONFIDENCE: Mandarin Essence, Sweet Orange Essence, Quince, RhubarbHeart Notes: DETERMINATION: Ginger Essence, Black Pepper, Transparent Jasmine, AlmondBase Notes: ELEGANCE: Vanilla, Cedarwood, Akigalawood, Dry Amber",
+    "price": 3112,
+    "metadata": {
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "CLO-00135",
+    "name": "Lady Lyka Women Pack of 2 Beginners Bras TEENAGER-FCA-SKN",
+    "color": "Unknown",
+    "brand": "Lady Lyka",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Fuschia and beige solid medium-coverage beginners brasNon Padded and Non-Wired cut and sew cupsRegular straps and back closureBack style: RegularFeature: All Day Comfort",
+    "price": 425,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00136",
+    "name": "Fusion Beats Women Red & Gold-Coloured Printed Straight Palazzos",
+    "color": "Red",
+    "brand": "Fusion Beats",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Red and gold-coloured printed woven straight fit Palazzos, opaque, and drawstring closure",
+    "price": 1033,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00137",
+    "name": "Bamboo Tree Jewels Silver-Toned & Blue Metal Handcrafted Necklace",
+    "color": "Blue",
+    "brand": "Bamboo Tree Jewels",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Silver-Toned and blue handcrafted necklaceMaterial and stone type: Metal with Artificial BeadsClosure: S-Hook",
+    "price": 742,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00138",
+    "name": "Style Quotient Women Maroon & Navy Blue Original Straight Fit Striped Parallel Trousers",
+    "color": "Blue",
+    "brand": "Style Quotient",
+    "category": "Clothes",
+    "subCategory": "Bottomwear",
+    "description": "Maroon, navy blue and white striped mid-rise trousers, has partially elasticated waistband with slip-on detail, and 2 pockets",
+    "price": 615,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00139",
+    "name": "Belle Fille Women Off-White & Pink Printed Sheath Dress",
+    "color": "White",
+    "brand": "Belle Fille",
+    "category": "Clothes",
+    "subCategory": "Dress",
+    "description": "Off-white, pink and green printed woven sheath dress, has a round neck, sleeveless, button and concealed zip closure, straight hem, back slit",
+    "price": 719,
+    "metadata": {
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "CLO-00140",
+    "name": "ExclusiveLane Brown Wooden Handcrafted  Owl Motif Cutlery Holder",
+    "color": "Brown",
+    "brand": "ExclusiveLane",
+    "category": "Clothes",
+    "subCategory": "Apparel",
+    "description": "Type: Cutlery and stationery holderColour: BrownPattern: OwlFEATURES:- Ideal for storing day-to-day dining cutlery like spoons, forks, etc.- Can also be used as utility container or knick-knacks holder to organize your work desk and can also be used to keep stationery items.- Comes with 2 partitions to store cutlery & napkins separately.- The cutlery holder is hand carved in wood depicting the owl motif.- Hand Carved in Sheesham Wood.- The product has been made by hand and may have slight irregularities that are a natural outcome of the human involvement in the process.",
+    "price": 1031,
+    "metadata": {
+      "gender": "Unisex"
+    }
+  },
+  {
+    "productID": "SHO-00141",
+    "name": "Skechers Elite Flex Wasick",
+    "color": "Grey",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Training",
+    "description": "Skechers Elite Flex Wasick Training for Women in Grey color, made of Knit.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Knit",
+      "type": "Training",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00142",
+    "name": "Adidas Superstar",
+    "color": "White/Black",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Adidas Superstar Casual for Women in White/Black color, made of Leather.",
+    "price": 85,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Leather",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00143",
+    "name": "Converse Jack Purcell",
+    "color": "White",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Jack Purcell Casual for Women in White color, made of Canvas.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 7",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00144",
+    "name": "Skechers Elite Flex Wasick",
+    "color": "Navy",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Training",
+    "description": "Skechers Elite Flex Wasick Training for Men in Navy color, made of Mesh.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 8",
+      "material": "Mesh",
+      "type": "Training",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00145",
+    "name": "Adidas NMD_R1",
+    "color": "Pink",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Adidas NMD_R1 Casual for Women in Pink color, made of Primeknit.",
+    "price": 130,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Primeknit",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00146",
+    "name": "Puma Calibrate Runner",
+    "color": "Blue/White",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Puma Calibrate Runner Running for Women in Blue/White color, made of Mesh.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00147",
+    "name": "New Balance FuelCell Rebel v2",
+    "color": "Green/Black",
+    "brand": "New Balance",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "New Balance FuelCell Rebel v2 Running for Women in Green/Black color, made of Mesh.",
+    "price": 130,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00148",
+    "name": "Nike Air Zoom Pegasus 38",
+    "color": "Blue",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Nike Air Zoom Pegasus 38 Running for Men in Blue color, made of Mesh.",
+    "price": 120,
+    "metadata": {
+      "shoe_size": "US 9.5",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00149",
+    "name": "Converse All Star Lift",
+    "color": "Black",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse All Star Lift Casual for Women in Black color, made of Canvas.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 6.5",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00150",
+    "name": "Skechers Elite Flex",
+    "color": "Grey/Pink",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Walking",
+    "description": "Skechers Elite Flex Walking for Women in Grey/Pink color, made of Knit.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Knit",
+      "type": "Walking",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00151",
+    "name": "Adidas Ultraboost DNA",
+    "color": "Blue",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Adidas Ultraboost DNA Running for Women in Blue color, made of Primeknit.",
+    "price": 180,
+    "metadata": {
+      "shoe_size": "US 6",
+      "material": "Primeknit",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00152",
+    "name": "Converse Jack Purcell",
+    "color": "White",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Jack Purcell Casual for Men in White color, made of Canvas.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00153",
+    "name": "Nike Air Force 1",
+    "color": "White",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Nike Air Force 1 Casual for Men in White color, made of Leather.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Leather",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00154",
+    "name": "Nike Air Force 1",
+    "color": "White",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Basketball",
+    "description": "Nike Air Force 1 Basketball for Men in White color, made of Leather.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Leather",
+      "type": "Basketball",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00155",
+    "name": "Fila Mindblower",
+    "color": "White/Pink",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Mindblower Fashion for Women in White/Pink color, made of Leather/Synthetic.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Leather/Synthetic",
+      "type": "Fashion",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00156",
+    "name": "Asics Gel-Kayano 28",
+    "color": "Black",
+    "brand": "Asics",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Asics Gel-Kayano 28 Running for Women in Black color, made of Mesh.",
+    "price": 160,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00157",
+    "name": "Vans Sk8-Hi",
+    "color": "Black/White",
+    "brand": "Vans",
+    "category": "Shoes",
+    "subCategory": "Skate",
+    "description": "Vans Sk8-Hi Skate for Women in Black/White color, made of Canvas/Suede.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Canvas/Suede",
+      "type": "Skate",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00158",
+    "name": "Reebok Aztrek",
+    "color": "Black/Gold/Red",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Retro",
+    "description": "Reebok Aztrek Retro for Women in Black/Gold/Red color, made of Suede/Mesh.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Suede/Mesh",
+      "type": "Retro",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00159",
+    "name": "Skechers Elite Flex Wasick",
+    "color": "Navy",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Training",
+    "description": "Skechers Elite Flex Wasick Training for Men in Navy color, made of Mesh.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 8",
+      "material": "Mesh",
+      "type": "Training",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00160",
+    "name": "Fila Strada",
+    "color": "White/Red/Blue",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Strada Fashion for Men in White/Red/Blue color, made of Synthetic.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Synthetic",
+      "type": "Fashion",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00161",
+    "name": "Nike Epic React Flyknit",
+    "color": "Grey",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Nike Epic React Flyknit Running for Women in Grey color, made of Flyknit.",
+    "price": 150,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Flyknit",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00162",
+    "name": "Skechers Go Walk 5",
+    "color": "Black",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Walking",
+    "description": "Skechers Go Walk 5 Walking for Men in Black color, made of Mesh.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Mesh",
+      "type": "Walking",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00163",
+    "name": "Skechers Summits",
+    "color": "Grey",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Training",
+    "description": "Skechers Summits Training for Men in Grey color, made of Mesh.",
+    "price": 55,
+    "metadata": {
+      "shoe_size": "US 8",
+      "material": "Mesh",
+      "type": "Training",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00164",
+    "name": "Fila Spaghetti",
+    "color": "White/Navy",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Spaghetti Fashion for Men in White/Navy color, made of Leather/Synthetic.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 8",
+      "material": "Leather/Synthetic",
+      "type": "Fashion",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00165",
+    "name": "New Balance Fresh Foam More v3",
+    "color": "Black/Grey",
+    "brand": "New Balance",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "New Balance Fresh Foam More v3 Running for Men in Black/Grey color, made of Mesh.",
+    "price": 165,
+    "metadata": {
+      "shoe_size": "US 12",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00166",
+    "name": "Reebok Classic Nylon",
+    "color": "Grey",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Reebok Classic Nylon Casual for Men in Grey color, made of Nylon.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Nylon",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00167",
+    "name": "Fila Mindblower",
+    "color": "Red/White",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Mindblower Fashion for Men in Red/White color, made of Synthetic/Leather.",
+    "price": 75,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Synthetic/Leather",
+      "type": "Fashion",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00168",
+    "name": "Asics Gel-Quantum 360 6",
+    "color": "Grey/Green",
+    "brand": "Asics",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Asics Gel-Quantum 360 6 Running for Women in Grey/Green color, made of Mesh.",
+    "price": 180,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00169",
+    "name": "Nike Air Force 1",
+    "color": "White",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Nike Air Force 1 Casual for Men in White color, made of Leather.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Leather",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00170",
+    "name": "Reebok Zig Kinetica II",
+    "color": "Blue",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Reebok Zig Kinetica II Running for Men in Blue color, made of Mesh.",
+    "price": 120,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00171",
+    "name": "Asics GT-2000 9",
+    "color": "Black",
+    "brand": "Asics",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Asics GT-2000 9 Running for Men in Black color, made of Mesh.",
+    "price": 120,
+    "metadata": {
+      "shoe_size": "US 10.5",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00172",
+    "name": "Fila V94M Low",
+    "color": "White/Pink",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila V94M Low Fashion for Women in White/Pink color, made of Leather.",
+    "price": 75,
+    "metadata": {
+      "shoe_size": "US 7",
+      "material": "Leather",
+      "type": "Fashion",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00173",
+    "name": "Nike React Infinity Run Flyknit 2",
+    "color": "Blue",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Nike React Infinity Run Flyknit 2 Running for Men in Blue color, made of Flyknit.",
+    "price": 160,
+    "metadata": {
+      "shoe_size": "US 9.5",
+      "material": "Flyknit",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00174",
+    "name": "Puma Cell Venom",
+    "color": "Grey",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Puma Cell Venom Lifestyle for Men in Grey color, made of Leather.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Leather",
+      "type": "Lifestyle",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00175",
+    "name": "Asics Gel-Lyte III",
+    "color": "Black/Grey",
+    "brand": "Asics",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Asics Gel-Lyte III Lifestyle for Women in Black/Grey color, made of Leather/Suede.",
+    "price": 110,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Leather/Suede",
+      "type": "Lifestyle",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00176",
+    "name": "Reebok Nano X1",
+    "color": "Blue",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Training",
+    "description": "Reebok Nano X1 Training for Men in Blue color, made of Mesh.",
+    "price": 130,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Mesh",
+      "type": "Training",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00177",
+    "name": "Reebok Nano 9",
+    "color": "Black",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Crossfit",
+    "description": "Reebok Nano 9 Crossfit for Women in Black color, made of Mesh.",
+    "price": 130,
+    "metadata": {
+      "shoe_size": "US 7",
+      "material": "Mesh",
+      "type": "Crossfit",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00178",
+    "name": "Asics Gel-Kayano 28",
+    "color": "White/Pink",
+    "brand": "Asics",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Asics Gel-Kayano 28 Running for Women in White/Pink color, made of Mesh.",
+    "price": 160,
+    "metadata": {
+      "shoe_size": "US 7",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00179",
+    "name": "Adidas Superstar",
+    "color": "White/Gold",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Adidas Superstar Casual for Men in White/Gold color, made of Leather/Synthetic.",
+    "price": 85,
+    "metadata": {
+      "shoe_size": "US 10.5",
+      "material": "Leather/Synthetic",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00180",
+    "name": "Converse Jack Purcell",
+    "color": "White",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Jack Purcell Casual for Women in White color, made of Canvas.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00181",
+    "name": "Converse Run Star Hike",
+    "color": "Cream",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Run Star Hike Casual for Women in Cream color, made of Canvas.",
+    "price": 110,
+    "metadata": {
+      "shoe_size": "US 8",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00182",
+    "name": "New Balance 327",
+    "color": "Blue/Orange",
+    "brand": "New Balance",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "New Balance 327 Lifestyle for Men in Blue/Orange color, made of Suede/Mesh.",
+    "price": 90,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Suede/Mesh",
+      "type": "Lifestyle",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00183",
+    "name": "Puma Calibrate Runner",
+    "color": "Black",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Puma Calibrate Runner Running for Men in Black color, made of Mesh.",
+    "price": 80,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00184",
+    "name": "Vans Sk8-Hi",
+    "color": "Black/White",
+    "brand": "Vans",
+    "category": "Shoes",
+    "subCategory": "Skate",
+    "description": "Vans Sk8-Hi Skate for Men in Black/White color, made of Canvas.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Canvas",
+      "type": "Skate",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00185",
+    "name": "Fila Mindblower",
+    "color": "White",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Mindblower Fashion for Women in White color, made of Leather.",
+    "price": 75,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Leather",
+      "type": "Fashion",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00186",
+    "name": "Nike Air Max 2090",
+    "color": "Green",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Nike Air Max 2090 Running for Women in Green color, made of Mesh.",
+    "price": 150,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00187",
+    "name": "Converse Jack Purcell Low Top",
+    "color": "White",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Jack Purcell Low Top Casual for Women in White color, made of Canvas.",
+    "price": 65,
+    "metadata": {
+      "shoe_size": "US 7",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00188",
+    "name": "Adidas NMD_R1",
+    "color": "Pink",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Adidas NMD_R1 Lifestyle for Women in Pink color, made of Primeknit.",
+    "price": 140,
+    "metadata": {
+      "shoe_size": "US 7",
+      "material": "Primeknit",
+      "type": "Lifestyle",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00189",
+    "name": "Puma Clyde All-Pro",
+    "color": "White",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Basketball",
+    "description": "Puma Clyde All-Pro Basketball for Men in White color, made of Leather.",
+    "price": 130,
+    "metadata": {
+      "shoe_size": "US 10.5",
+      "material": "Leather",
+      "type": "Basketball",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00190",
+    "name": "Nike Blazer Mid",
+    "color": "Red",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Nike Blazer Mid Casual for Women in Red color, made of Leather.",
+    "price": 100,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Leather",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00191",
+    "name": "Fila Venom",
+    "color": "Grey",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Venom Fashion for Men in Grey color, made of Synthetic.",
+    "price": 75,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Synthetic",
+      "type": "Fashion",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00192",
+    "name": "Fila Mindblower",
+    "color": "Grey",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila Mindblower Fashion for Men in Grey color, made of Synthetic.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Synthetic",
+      "type": "Fashion",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00193",
+    "name": "Skechers Arch Fit",
+    "color": "Grey",
+    "brand": "Skechers",
+    "category": "Shoes",
+    "subCategory": "Walking",
+    "description": "Skechers Arch Fit Walking for Women in Grey color, made of Mesh.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 7.5",
+      "material": "Mesh",
+      "type": "Walking",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00194",
+    "name": "Fila Original Fitness",
+    "color": "White/Navy",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Fila Original Fitness Casual for Men in White/Navy color, made of Leather.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Leather",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00195",
+    "name": "Vans Slip-On",
+    "color": "Black/White",
+    "brand": "Vans",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Vans Slip-On Casual for Men in Black/White color, made of Canvas.",
+    "price": 50,
+    "metadata": {
+      "shoe_size": "US 10.5",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00196",
+    "name": "Asics Gel-Kayano Lite",
+    "color": "Purple",
+    "brand": "Asics",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Asics Gel-Kayano Lite Running for Women in Purple color, made of Mesh/Synthetic.",
+    "price": 120,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Mesh/Synthetic",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00197",
+    "name": "Puma RS-X3 Puzzle",
+    "color": "Black/Yellow",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Puma RS-X3 Puzzle Lifestyle for Men in Black/Yellow color, made of Synthetic.",
+    "price": 110,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Synthetic",
+      "type": "Lifestyle",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00198",
+    "name": "Converse Jack Purcell",
+    "color": "White",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Jack Purcell Casual for Men in White color, made of Canvas.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00199",
+    "name": "Adidas Yeezy Boost 350 V2",
+    "color": "Cream White",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Adidas Yeezy Boost 350 V2 Lifestyle for Men in Cream White color, made of Primeknit.",
+    "price": 220,
+    "metadata": {
+      "shoe_size": "US 11",
+      "material": "Primeknit",
+      "type": "Lifestyle",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00200",
+    "name": "Vans Sk8-Hi",
+    "color": "Black/White",
+    "brand": "Vans",
+    "category": "Shoes",
+    "subCategory": "Skate",
+    "description": "Vans Sk8-Hi Skate for Men in Black/White color, made of Suede/Canvas.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Suede/Canvas",
+      "type": "Skate",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00201",
+    "name": "Fila D-Formation",
+    "color": "White/Black",
+    "brand": "Fila",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Fila D-Formation Fashion for Women in White/Black color, made of Leather/Synthetic.",
+    "price": 70,
+    "metadata": {
+      "shoe_size": "US 6",
+      "material": "Leather/Synthetic",
+      "type": "Fashion",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00202",
+    "name": "Reebok Nano 9",
+    "color": "Grey/Black",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Crossfit",
+    "description": "Reebok Nano 9 Crossfit for Men in Grey/Black color, made of Mesh.",
+    "price": 130,
+    "metadata": {
+      "shoe_size": "US 9.5",
+      "material": "Mesh",
+      "type": "Crossfit",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00203",
+    "name": "Adidas NMD_R1",
+    "color": "Grey",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Adidas NMD_R1 Lifestyle for Men in Grey color, made of Primeknit.",
+    "price": 140,
+    "metadata": {
+      "shoe_size": "US 11.5",
+      "material": "Primeknit",
+      "type": "Lifestyle",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00204",
+    "name": "Reebok Floatride Energy 3",
+    "color": "White/Black",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Reebok Floatride Energy 3 Running for Men in White/Black color, made of Knit/Synthetic.",
+    "price": 100,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Knit/Synthetic",
+      "type": "Running",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00205",
+    "name": "Adidas Yeezy Boost 350 V2",
+    "color": "Cream White",
+    "brand": "Adidas",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Adidas Yeezy Boost 350 V2 Fashion for Women in Cream White color, made of Primeknit/Synthetic.",
+    "price": 220,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Primeknit/Synthetic",
+      "type": "Fashion",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00206",
+    "name": "Converse Chuck 70",
+    "color": "Ivory",
+    "brand": "Converse",
+    "category": "Shoes",
+    "subCategory": "Casual",
+    "description": "Converse Chuck 70 Casual for Women in Ivory color, made of Canvas.",
+    "price": 85,
+    "metadata": {
+      "shoe_size": "US 8.5",
+      "material": "Canvas",
+      "type": "Casual",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00207",
+    "name": "Reebok Zig Kinetica",
+    "color": "Pink",
+    "brand": "Reebok",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Reebok Zig Kinetica Running for Women in Pink color, made of Mesh.",
+    "price": 120,
+    "metadata": {
+      "shoe_size": "US 9",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00208",
+    "name": "Puma Cali Sport",
+    "color": "White/Black",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Fashion",
+    "description": "Puma Cali Sport Fashion for Women in White/Black color, made of Leather.",
+    "price": 80,
+    "metadata": {
+      "shoe_size": "US 6.5",
+      "material": "Leather",
+      "type": "Fashion",
+      "gender": "Women"
+    }
+  },
+  {
+    "productID": "SHO-00209",
+    "name": "Puma RS-Fast Tech",
+    "color": "Black/Red",
+    "brand": "Puma",
+    "category": "Shoes",
+    "subCategory": "Lifestyle",
+    "description": "Puma RS-Fast Tech Lifestyle for Men in Black/Red color, made of Synthetic.",
+    "price": 110,
+    "metadata": {
+      "shoe_size": "US 9.5",
+      "material": "Synthetic",
+      "type": "Lifestyle",
+      "gender": "Men"
+    }
+  },
+  {
+    "productID": "SHO-00210",
+    "name": "Nike Free RN 5.0",
+    "color": "Grey",
+    "brand": "Nike",
+    "category": "Shoes",
+    "subCategory": "Running",
+    "description": "Nike Free RN 5.0 Running for Men in Grey color, made of Mesh.",
+    "price": 100,
+    "metadata": {
+      "shoe_size": "US 10",
+      "material": "Mesh",
+      "type": "Running",
+      "gender": "Men"
+    }
+  }
+]

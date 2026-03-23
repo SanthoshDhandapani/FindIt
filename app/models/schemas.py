@@ -4,7 +4,7 @@ from typing import Literal, Optional
 
 class SearchRequest(BaseModel):
     query: str
-    category: Optional[Literal["electronics", "shoes", "stationery"]] = None
+    category: Optional[Literal["electronics", "shoes", "clothes"]] = None
     brand: Optional[str] = None
     color: Optional[str] = None
     price_min: Optional[float] = None
@@ -21,7 +21,7 @@ class ProductResult(BaseModel):
     color: Optional[str]
     price: float
     rating: float
-    review_count: int
+    review_count: int = 0
     relevancy_score: float
     image_url: Optional[str] = None
 
@@ -37,7 +37,7 @@ class SearchResponse(BaseModel):
 
 class ParsedIntent(BaseModel):
     """Structured output from the Query Analyst agent."""
-    category: Optional[Literal["electronics", "shoes", "stationery"]] = None
+    category: Optional[Literal["electronics", "shoes", "clothes"]] = None
     brand: Optional[str] = None
     color: Optional[str] = None
     price_min: Optional[float] = None
@@ -52,12 +52,12 @@ class Product(BaseModel):
     product_id: str
     name: str
     brand: str
-    category: Literal["electronics", "shoes", "stationery"]
+    category: Literal["electronics", "shoes", "clothes"]
     subcategory: Optional[str] = None
     color: Optional[str] = None
     price: float
-    rating: float
-    review_count: int
+    rating: float = 0.0
+    review_count: int = 0
     description: Optional[str] = None
     key_features: list[str] = []
     stock_status: Literal["in_stock", "out_of_stock", "low_stock"] = "in_stock"
