@@ -105,19 +105,32 @@ def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
     return _build_intent(data, request)
 
 
+def _clean(val):
+    """Convert LLM string 'null'/'None' to actual None."""
+    if val is None or val == "null" or val == "None" or val == "":
+        return None
+    return val
+
+
 def _build_intent(data: dict, request: SearchRequest) -> ParsedIntent:
     """Build ParsedIntent from LLM data, overriding with explicit request filters."""
 
-    # Build intent from LLM output, with sensible defaults
+    # Sanitize LLM output — Gemini sometimes returns "null" as string
+    category = _clean(data.get("category"))
+    sort_by = _clean(data.get("sort_by")) or "relevancy"
+    specificity = _clean(data.get("specificity")) or "medium"
+    price_min = _clean(data.get("price_min"))
+    price_max = _clean(data.get("price_max"))
+
     intent = ParsedIntent(
-        category=data.get("category"),
-        brand=data.get("brand"),
-        color=data.get("color"),
-        price_min=data.get("price_min"),
-        price_max=data.get("price_max"),
-        sort_by=data.get("sort_by", "relevancy"),
-        keywords=data.get("keywords", []),
-        specificity=data.get("specificity", "medium"),
+        category=category,
+        brand=_clean(data.get("brand")),
+        color=_clean(data.get("color")),
+        price_min=float(price_min) if price_min is not None else None,
+        price_max=float(price_max) if price_max is not None else None,
+        sort_by=sort_by,
+        keywords=data.get("keywords") or [],
+        specificity=specificity,
     )
 
     # Explicit filters from SearchRequest always override LLM inference
