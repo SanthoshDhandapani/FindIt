@@ -6,6 +6,7 @@ export function useSearch() {
   const [response, setResponse] = useState<SearchResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const search = useCallback(async (request: SearchRequest) => {
     setLoading(true);
@@ -13,6 +14,7 @@ export function useSearch() {
     try {
       const data = await searchProducts(request);
       setResponse(data);
+      if (request.query.trim()) setHasSearched(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Search failed");
       setResponse(null);
@@ -21,5 +23,5 @@ export function useSearch() {
     }
   }, []);
 
-  return { response, loading, error, search };
+  return { response, loading, error, search, hasSearched };
 }

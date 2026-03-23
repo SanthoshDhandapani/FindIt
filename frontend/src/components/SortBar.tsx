@@ -4,6 +4,7 @@ interface SortBarProps {
   resultCount: number;
   searchMode?: string;
   latencyMs?: number;
+  hasSearched: boolean;
 }
 
 export function SortBar({
@@ -12,15 +13,20 @@ export function SortBar({
   resultCount,
   searchMode,
   latencyMs,
+  hasSearched,
 }: SortBarProps) {
   return (
     <div className="sort-bar">
       <div className="result-info">
-        <span className="result-count">{resultCount} results</span>
-        {searchMode && (
-          <span className="search-mode">Mode: {searchMode}</span>
+        <span className="result-count">
+          {hasSearched
+            ? `${resultCount} result${resultCount !== 1 ? "s" : ""}`
+            : `${resultCount} products`}
+        </span>
+        {searchMode && searchMode !== "mock" && (
+          <span className="search-mode">{searchMode}</span>
         )}
-        {latencyMs !== undefined && (
+        {latencyMs !== undefined && hasSearched && (
           <span className="latency">{latencyMs.toFixed(0)}ms</span>
         )}
       </div>
@@ -33,8 +39,8 @@ export function SortBar({
         >
           <option value="relevancy">Relevancy</option>
           <option value="rating">Rating</option>
-          <option value="price_asc">Price: Low → High</option>
-          <option value="price_desc">Price: High → Low</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
         </select>
       </div>
     </div>
