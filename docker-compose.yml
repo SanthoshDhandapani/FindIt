@@ -1,4 +1,11 @@
 services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
   api:
     build: .
     ports:
@@ -10,8 +17,6 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
-    volumes:
-      - .:/app
 
   redis:
     image: redis:7-alpine
