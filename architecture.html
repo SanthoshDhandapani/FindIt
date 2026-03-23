@@ -802,8 +802,172 @@
 
   <hr class="divider">
 
+  <!-- Phase 3 -->
+  <div class="section">
+    <div class="layer-row">
+      <span class="pill" style="background:var(--c-coral-bg);color:var(--c-coral-text);border:0.5px solid var(--c-coral-border)">Phase 3</span>
+      <span class="layer-name">Agentic design pattern enhancements</span>
+    </div>
+    <p class="layer-desc">Improvements derived from Agentic Design Patterns training — reflection loops, category routing, parallel retrieval, compound query handoff, guardrails, and evaluation.</p>
+    <div class="grid g3" style="margin-bottom:7px">
+      <div class="card accent-coral" onclick="toggle(this,'reflection')">
+        <div class="ct">Reflection loop</div>
+        <div class="cs">Self-critique on ranker output · retry with adjusted alpha if quality is low</div>
+      </div>
+      <div class="card accent-coral" onclick="toggle(this,'cat-routing')">
+        <div class="ct">Category-aware routing</div>
+        <div class="cs">Electronics → keyword-heavy · Shoes → semantic-heavy · per-category strategy</div>
+      </div>
+      <div class="card accent-coral" onclick="toggle(this,'parallel')">
+        <div class="ct">Parallel retrieval</div>
+        <div class="cs">asyncio.gather for semantic + keyword paths · ~40% latency reduction</div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-bottom:7px">
+      <div class="card accent-amber" onclick="toggle(this,'multi-handoff')">
+        <div class="ct">Multi-agent handoff</div>
+        <div class="cs">Compound queries split into sub-flows · results merged per category</div>
+      </div>
+      <div class="card accent-amber" onclick="toggle(this,'guardrails')">
+        <div class="ct">Input guardrails</div>
+        <div class="cs">Prompt injection guard · query sanitization · rate limiting</div>
+      </div>
+      <div class="card accent-amber" onclick="toggle(this,'rag-eval')">
+        <div class="ct">RAG evaluation</div>
+        <div class="cs">Ragas metrics · faithfulness · context precision · NDCG@10</div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div class="card accent-gray" onclick="toggle(this,'langsmith-trace')">
+        <div class="ct">LangSmith tracing</div>
+        <div class="cs">Full agent pipeline traces · per-step latency · LLM call replay</div>
+      </div>
+      <div class="card accent-gray" onclick="toggle(this,'hf-fallback')">
+        <div class="ct">HuggingFace embedding fallback</div>
+        <div class="cs">Local sentence-transformers · zero API cost for dev/testing</div>
+      </div>
+    </div>
+    <div class="expand" id="reflection">
+      <div class="panel">
+        <b>Pattern:</b> Reflection (from <code>Agentic Design Patterns/Reflection.py</code>)<br><br>
+        After the Results Ranker scores candidates, an evaluator checks result quality. If average relevancy falls below a threshold (e.g. 0.4), the system adjusts parameters and retries:<br><br>
+        &nbsp;1. Results Ranker produces scored list<br>
+        &nbsp;2. Evaluator checks avg relevancy, diversity, category coverage<br>
+        &nbsp;3. If <b>FAIL</b> → adjust alpha &plusmn;0.15, relax filters, increase top_k by 20<br>
+        &nbsp;4. Re-run search (max 2 retries)<br>
+        &nbsp;5. If <b>PASS</b> → return results<br><br>
+        <b>New file:</b> <code>app/agents/evaluator.py</code> — Pydantic schema <code>EvaluationResult(status, avg_relevancy, feedback, adjusted_alpha)</code>
+        <div class="tags">
+          <span class="tag">Self-critique</span><span class="tag">Iterative refinement</span>
+          <span class="tag">Max 2 retries</span><span class="tag">Configurable threshold</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="cat-routing">
+      <div class="panel">
+        <b>Pattern:</b> Routing (from <code>Agentic Design Patterns/Routing.py</code>)<br><br>
+        Instead of one-size-fits-all alpha, route to category-specific search strategies:<br><br>
+        &nbsp;· <b>Electronics</b> → &alpha; = 0.3 (keyword-heavy, users search by exact specs)<br>
+        &nbsp;· <b>Shoes</b> → &alpha; = 0.8 (semantic-heavy, users describe aesthetics)<br>
+        &nbsp;· <b>Stationery</b> → &alpha; = 0.5 (balanced, price-sensitive)<br>
+        &nbsp;· <b>Unknown</b> → &alpha; = 0.6 (fallback, search all namespaces)<br><br>
+        Specificity adjustments are applied on top of the category base alpha.
+        <div class="tags">
+          <span class="tag">Per-category alpha</span><span class="tag">Spec-matching for electronics</span>
+          <span class="tag">Aesthetic search for shoes</span><span class="tag">Fallback routing</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="parallel">
+      <div class="panel">
+        <b>Pattern:</b> Parallelization (from <code>Agentic Design Patterns/Parallelization.py</code>)<br><br>
+        Semantic (Pinecone vector query) and keyword (BM25/token overlap) paths are independent — run concurrently:<br><br>
+        <code>semantic, keyword = await asyncio.gather(_query_pinecone(...), _keyword_search(...))</code><br><br>
+        <b>Impact:</b> Eliminates sequential wait, reducing search latency by ~40%. Both results feed into the same RRF merge step.
+        <div class="tags">
+          <span class="tag">asyncio.gather</span><span class="tag">~40% latency reduction</span>
+          <span class="tag">No code change to RRF merge</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="multi-handoff">
+      <div class="panel">
+        <b>Pattern:</b> Multi-Agent Handoff (from <code>Agentic Design Patterns/MultiAgent.py</code>)<br><br>
+        Handles compound queries like "laptop and a bag for it":<br><br>
+        &nbsp;1. Query Analyst detects multiple intents (categories) in one query<br>
+        &nbsp;2. Splits into sub-queries, each with its own <code>ParsedIntent</code><br>
+        &nbsp;3. Each sub-query handed off to a parallel search flow<br>
+        &nbsp;4. Results merged and presented as grouped sections<br><br>
+        Uses the same handoff schema pattern as the Hotel/Restaurant agent example.
+        <div class="tags">
+          <span class="tag">Multi-intent detection</span><span class="tag">Sub-query splitting</span>
+          <span class="tag">Parallel search flows</span><span class="tag">Grouped results</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="guardrails">
+      <div class="panel">
+        <b>Pattern:</b> Guardrails / Tripwire (from Agentic Deployment training)<br><br>
+        Middleware layer before the agent pipeline:<br><br>
+        &nbsp;· <b>Prompt injection guard</b> — regex patterns for "ignore instructions", "system prompt", etc.<br>
+        &nbsp;· <b>Query validation</b> — min/max length, non-product query detection<br>
+        &nbsp;· <b>Input sanitization</b> — trim, normalize, remove special chars<br>
+        &nbsp;· <b>Rate limiting</b> — per-session throttling<br><br>
+        <b>New file:</b> <code>app/middleware/guardrails.py</code>
+        <div class="tags">
+          <span class="tag">Prompt injection defense</span><span class="tag">Input validation</span>
+          <span class="tag">Rate limiting</span><span class="tag">FastAPI middleware</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="rag-eval">
+      <div class="panel">
+        <b>Pattern:</b> Evaluation metrics (from Evals and Embeddings training)<br><br>
+        Offline evaluation of search quality using Ragas framework:<br><br>
+        &nbsp;· <b>Faithfulness</b> — do returned products match query intent?<br>
+        &nbsp;· <b>Answer relevancy</b> — how relevant are top-K results?<br>
+        &nbsp;· <b>Context precision</b> — are the best results ranked highest?<br>
+        &nbsp;· <b>NDCG@10</b> — normalized discounted cumulative gain<br><br>
+        <b>New file:</b> <code>scripts/evaluate_search.py</code> — run against a test query set, output metrics report.
+        <div class="tags">
+          <span class="tag">Ragas framework</span><span class="tag">NDCG@10</span>
+          <span class="tag">Offline evaluation</span><span class="tag">Test query set</span>
+        </div>
+      </div>
+    </div>
+    <div class="expand" id="langsmith-trace">
+      <div class="panel">
+        <b>Pattern:</b> Observability (from <code>Observability/CrewAI_Langsmith.py</code>)<br><br>
+        Full end-to-end tracing of every agent pipeline run. Each span captures:<br>
+        &nbsp;· Query Analyst LLM call (prompt, parsed intent, latency)<br>
+        &nbsp;· Search Strategist decision (alpha, filters, namespace)<br>
+        &nbsp;· Pinecone query (vector, filter, top_k, result count)<br>
+        &nbsp;· Reflection loop iterations (if triggered)<br>
+        &nbsp;· Total pipeline latency<br><br>
+        Config already exists: <code>langchain_tracing_v2</code> and <code>langchain_api_key</code> in <code>app/config.py</code>.
+      </div>
+    </div>
+    <div class="expand" id="hf-fallback">
+      <div class="panel">
+        <b>Pattern:</b> Cost optimization (from <code>Orchestration Frameworks/LlamaIndex/RAG_ChromaDB.ipynb</code>)<br><br>
+        Add <code>embed_text_local()</code> using HuggingFace <code>sentence-transformers</code> (e.g. <code>all-MiniLM-L6-v2</code>) as a fallback when:<br><br>
+        &nbsp;· OpenAI API is down or rate-limited<br>
+        &nbsp;· Running in development/testing (avoid API costs)<br>
+        &nbsp;· Batch indexing large product catalogs<br><br>
+        Toggle via <code>EMBEDDING_PROVIDER=openai|huggingface</code> in <code>.env</code>.
+        <div class="tags">
+          <span class="tag">sentence-transformers</span><span class="tag">Local inference</span>
+          <span class="tag">Zero API cost</span><span class="tag">Configurable provider</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
   <div class="cta-row">
     <a class="cta-btn" href="README.md">README</a>
+    <a class="cta-btn" href="PLAN.md">PLAN</a>
     <a class="cta-btn" href="app/agents/search_agents.py">search_agents.py</a>
     <a class="cta-btn" href="app/services/search.py">search.py</a>
     <a class="cta-btn" href="app/api/routes.py">routes.py</a>
