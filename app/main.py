@@ -21,6 +21,15 @@ app = FastAPI(
 app.include_router(router, prefix="/api/v1")
 
 
+@app.on_event("startup")
+async def startup_event():
+    """Preload embedding model to avoid cold-start latency on first search."""
+    from app.services.embedding import preload_model
+    logger.info("Preloading embedding model...")
+    preload_model()
+    logger.info("Embedding model ready.")
+
+
 # ---------------------------------------------------------------------------
 # CORS middleware — allow React UI origin
 # ---------------------------------------------------------------------------

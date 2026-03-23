@@ -41,11 +41,21 @@ Return ONLY the JSON. No explanation, no markdown.
 """.strip()
 
 
+def _get_intent_cache():
+    """Lazy Redis connection for intent caching."""
+    try:
+        import redis
+        r = redis.from_url(settings.redis_url)
+        r.ping()
+        return r
+    except Exception:
+        return None
+
+
 def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
     """Parse a natural language query into a structured ParsedIntent using Gemini.
 
-    Calls gemini-2.5-flash with a JSON output schema, then overrides any
-    inferred fields with explicit filters already set on the SearchRequest.
+    Checks Redis cache first (TTL 5 min). On miss, calls Gemini and caches result.
 
     Args:
         query:   Raw user search string
@@ -54,6 +64,21 @@ def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
     Returns:
         ParsedIntent with all extractable fields populated
     """
+    import hashlib
+
+    # Check Redis cache for this query's intent
+    cache_key = f"intent:{hashlib.md5(query.lower().strip().encode()).hexdigest()}"
+    redis_client = _get_intent_cache()
+    if redis_client:
+        try:
+            cached = redis_client.get(cache_key)
+            if cached:
+                data = json.loads(cached)
+                logger.debug("Intent cache HIT for: %s", query)
+                return _build_intent(data, request)
+        except Exception:
+            pass
+
     prompt = f'User query: "{query}"'
 
     try:
@@ -66,9 +91,22 @@ def parse_intent_with_llm(query: str, request: SearchRequest) -> ParsedIntent:
             ),
         )
         data = json.loads(response.text)
+
+        # Cache the LLM result in Redis (TTL 5 min)
+        if redis_client:
+            try:
+                redis_client.setex(cache_key, 300, json.dumps(data))
+            except Exception:
+                pass
     except Exception as exc:
         logger.warning("Gemini intent parse failed (%s) — using fallback", exc)
         data = {}
+
+    return _build_intent(data, request)
+
+
+def _build_intent(data: dict, request: SearchRequest) -> ParsedIntent:
+    """Build ParsedIntent from LLM data, overriding with explicit request filters."""
 
     # Build intent from LLM output, with sensible defaults
     intent = ParsedIntent(

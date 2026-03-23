@@ -18,6 +18,11 @@ def _get_model() -> SentenceTransformer:
     return _model
 
 
+def preload_model() -> None:
+    """Preload the embedding model at app startup to avoid cold-start latency."""
+    _get_model()
+
+
 def embed_text(text: str) -> list[float]:
     model = _get_model()
     return model.encode(text).tolist()

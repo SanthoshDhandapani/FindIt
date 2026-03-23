@@ -40,10 +40,18 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
         - Reflection: evaluate quality after step 9, retry if score < threshold
         - Multi-agent handoff: detect_multi_intent() after step 1
     """
+    from concurrent.futures import ThreadPoolExecutor
+
     t_start = time.perf_counter()
 
-    # Step 1 — parse intent
-    intent: ParsedIntent = parse_intent_with_llm(request.query, request)
+    # Steps 1 + 4 — run Gemini intent parsing and embedding in PARALLEL
+    # (they're independent — intent doesn't need vector, vector doesn't need intent)
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        intent_future = executor.submit(parse_intent_with_llm, request.query, request)
+        vector_future = executor.submit(embed_text, request.query)
+        intent = intent_future.result()
+        vector = vector_future.result()
+
     logger.debug("Intent: %s", intent)
 
     # Step 2 — decide alpha (semantic vs keyword blend)
@@ -52,22 +60,28 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
     # Step 3 — build metadata filter
     filters = build_pinecone_filter(intent)
 
-    # Step 4 — embed query
-    vector = embed_text(request.query)
-
     # Determine namespaces to search
     namespaces = [intent.category] if intent.category else _ALL_NAMESPACES
     top_k_candidates = max(request.top_k * 3, 50)
 
-    # Step 5 — semantic retrieval (Pinecone vector search)
-    semantic_results: list[dict] = []
-    for ns in namespaces:
-        semantic_results.extend(_query_pinecone(vector, ns, top_k_candidates, filters))
+    # Steps 5 + 6 — run semantic and keyword retrieval in PARALLEL
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        def _run_semantic():
+            results = []
+            for ns in namespaces:
+                results.extend(_query_pinecone(vector, ns, top_k_candidates, filters))
+            return results
 
-    # Step 6 — keyword retrieval (token overlap simulation)
-    keyword_results: list[dict] = []
-    for ns in namespaces:
-        keyword_results.extend(_keyword_search(request.query, ns, top_k_candidates, filters=filters, vector=vector))
+        def _run_keyword():
+            results = []
+            for ns in namespaces:
+                results.extend(_keyword_search(request.query, ns, top_k_candidates, filters=filters, vector=vector))
+            return results
+
+        sem_future = executor.submit(_run_semantic)
+        kw_future = executor.submit(_run_keyword)
+        semantic_results = sem_future.result()
+        keyword_results = kw_future.result()
 
     # Step 7 — merge with Reciprocal Rank Fusion
     merged = _reciprocal_rank_fusion(semantic_results, keyword_results, alpha)
