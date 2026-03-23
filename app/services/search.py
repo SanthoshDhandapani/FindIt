@@ -67,7 +67,7 @@ def hybrid_search(request: SearchRequest) -> SearchResponse:
     # Step 6 — keyword retrieval (token overlap simulation)
     keyword_results: list[dict] = []
     for ns in namespaces:
-        keyword_results.extend(_keyword_search(request.query, ns, top_k_candidates))
+        keyword_results.extend(_keyword_search(request.query, ns, top_k_candidates, filters=filters, vector=vector))
 
     # Step 7 — merge with Reciprocal Rank Fusion
     merged = _reciprocal_rank_fusion(semantic_results, keyword_results, alpha)
@@ -159,6 +159,8 @@ def _keyword_search(
     query: str,
     namespace: str,
     top_k: int = 50,
+    filters: dict | None = None,
+    vector: list[float] | None = None,
 ) -> list[dict]:
     """Token overlap keyword scoring on product name and brand metadata.
 
@@ -166,28 +168,34 @@ def _keyword_search(
     Queries Pinecone to get candidates, then re-ranks by token overlap
     between the query and product name + brand + color fields.
 
-    For true sparse BM25, upgrade to Pinecone sparse-dense hybrid index (Phase 3).
-
     Args:
         query:     Raw user query string
         namespace: Pinecone namespace to search
         top_k:     Number of results to return
+        filters:   Pinecone metadata filters (same as semantic path)
+        vector:    Pre-computed query embedding (avoids duplicate embed call)
 
     Returns:
         list[dict]: Candidates sorted by token overlap score,
                     each with 'id', 'score', 'metadata'
     """
     from app.db.clients import get_pinecone_index
-    from app.services.embedding import embed_text as _embed
 
-    # Get a broad candidate set from Pinecone using the semantic vector
-    vector = _embed(query)
-    response = get_pinecone_index().query(
-        vector=vector,
-        top_k=top_k * 2,
-        namespace=namespace,
-        include_metadata=True,
-    )
+    # Reuse pre-computed vector if available
+    if vector is None:
+        from app.services.embedding import embed_text as _embed
+        vector = _embed(query)
+
+    query_kwargs: dict = {
+        "vector": vector,
+        "top_k": top_k * 2,
+        "namespace": namespace,
+        "include_metadata": True,
+    }
+    if filters:
+        query_kwargs["filter"] = filters
+
+    response = get_pinecone_index().query(**query_kwargs)
 
     # Re-rank by token overlap (query tokens ∩ product text tokens)
     query_tokens = set(query.lower().split())
@@ -236,6 +244,18 @@ def _reciprocal_rank_fusion(
     Returns:
         list[dict]: Merged, deduped results sorted by RRF score (descending)
     """
+    # Handle empty paths — if one path returned nothing, use only the other
+    if not semantic_results and not keyword_results:
+        return []
+    if not semantic_results:
+        for i, r in enumerate(keyword_results):
+            r["rrf_score"] = 1 / (k + i + 1)
+        return keyword_results
+    if not keyword_results:
+        for i, r in enumerate(semantic_results):
+            r["rrf_score"] = 1 / (k + i + 1)
+        return semantic_results
+
     # Build rank lookup by product id
     sem_rank = {r["id"]: i + 1 for i, r in enumerate(semantic_results)}
     kw_rank  = {r["id"]: i + 1 for i, r in enumerate(keyword_results)}

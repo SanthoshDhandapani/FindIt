@@ -149,9 +149,9 @@ def build_pinecone_filter(intent: ParsedIntent) -> dict:
     if intent.category:
         filters["category"] = {"$eq": intent.category}
     if intent.brand:
-        filters["brand"] = {"$eq": intent.brand}
+        filters["brand"] = {"$eq": intent.brand.lower()}
     if intent.color:
-        filters["color"] = {"$eq": intent.color}
+        filters["color"] = {"$eq": intent.color.lower()}
     if intent.price_min is not None:
         filters["price"] = {**filters.get("price", {}), "$gte": intent.price_min}
     if intent.price_max is not None:

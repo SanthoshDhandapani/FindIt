@@ -79,10 +79,10 @@ class Product(BaseModel):
         return {
             "product_id": self.product_id,
             "name": self.name,
-            "brand": self.brand,
+            "brand": self.brand.lower(),
             "category": self.category,
             "subcategory": self.subcategory or "",
-            "color": self.color or "",
+            "color": (self.color or "").lower(),
             "price": self.price,
             "rating": self.rating,
             "review_count": self.review_count,
