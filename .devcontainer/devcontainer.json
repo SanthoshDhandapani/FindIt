@@ -1,0 +1,26 @@
+{
+  "name": "FindIt — E-Commerce Search",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "api",
+  "workspaceFolder": "/app",
+  "forwardPorts": [3000, 8000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Frontend (FindIt UI)",
+      "onAutoForward": "openBrowser"
+    },
+    "8000": {
+      "label": "Backend API",
+      "onAutoForward": "silent"
+    }
+  },
+  "postStartCommand": "echo 'FindIt stack is running! Frontend: port 3000, API: port 8000'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}
